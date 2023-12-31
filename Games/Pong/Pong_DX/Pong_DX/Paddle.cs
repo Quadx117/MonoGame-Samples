@@ -10,7 +10,7 @@
 
         private const int PADDLE_WIDTH = 8;
 
-        private const int PADDLE_HEIGHT = 82;
+        private const int PADDLE_HEIGHT = 32;
 
         public Rectangle BoundingBox { get; private set; }
 
