@@ -1,17 +1,17 @@
-﻿namespace ProgressBar;
+﻿namespace PixelShader;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using ProgressBar.Managers;
+using PixelShader.Managers;
 
-public class ProgressBarDemo : Game
+public class PixelShaderDemo : Game
 {
     private readonly GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     private GameManager _gameManager;
 
-    public ProgressBarDemo()
+    public PixelShaderDemo()
     {
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
@@ -51,9 +51,7 @@ public class ProgressBarDemo : Game
     {
         GraphicsDevice.Clear(Color.Black);
 
-        _spriteBatch.Begin();
         _gameManager.Draw(_spriteBatch);
-        _spriteBatch.End();
 
         base.Draw(gameTime);
     }
