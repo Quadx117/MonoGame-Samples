@@ -177,8 +177,7 @@
                 break;
                 case GameState.Start:
                 {
-                    // TODO(PERE): Add a Reset to Ball instead of re-allocating memory
-                    _ball = new Ball(_random, _leftSideScored);
+                    _ball.Reset(_random, _leftSideScored);
                     // TODO(PERE): Add a reset and only allocate memory in Initialize
                     _paddles[0] = new Paddle(false);
                     _paddles[1] = new Paddle(true);
@@ -238,8 +237,7 @@
                 // go to GameState.Idle. Maybe we don't need a separate state for this?
                 case GameState.CheckEnd:
                 {
-                    // TODO(PERE): Add a Reset to Ball instead of re-allocating memory
-                    _ball = new Ball(_random, _leftSideScored);
+                    _ball.Reset(_random, _leftSideScored);
 
                     _gameState = _scores[0] > 9 ||
                                  _scores[1] > 9

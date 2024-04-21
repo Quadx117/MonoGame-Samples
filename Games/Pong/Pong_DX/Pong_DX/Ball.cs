@@ -21,18 +21,7 @@
 
         public Ball(Random random, bool leftSideScored)
         {
-            // TODO(PERE): Do something better for the center of the screen (i.e. pass in the constructor?)
-            // Probably keep a reference to the render target se we can query its size.
-            int ballDiameter = BALL_RADIUS * 2;
-            BoundingBox = new Rectangle((640 / 2) - BALL_RADIUS,
-                                        (480 / 2) - BALL_RADIUS,
-                                        ballDiameter,
-                                        ballDiameter);
-            // TODO(PERE): we had random.Next(3, 7) before, check what it does.
-            // TODO(PERE): Make the intention clearer for the yPos by doing _random.Next(0, 1) == 0?
-            // TODO(PERE): Use class constants for the min and max values
-            Velocity = new Point(leftSideScored ? random.Next(3, 7) : -random.Next(3, 7),
-                                 random.Next() > int.MaxValue / 2 ? random.Next(3, 7) : -random.Next(3, 7));
+            Reset(random, leftSideScored);
         }
 
         // TODO(PERE): Check params (nullable VS simple int and pass 0 instead of null?)
@@ -137,6 +126,25 @@
             return (score, bounced);
         }
 
+        public void Reset(Random random, bool leftSideScored)
+        {
+            int ballDiameter = BALL_RADIUS * 2;
+            // TODO(PERE): Do something better for the center of the screen (i.e. pass in the constructor?)
+            // Probably keep a reference to the render target se we can query its size.
+            // TODO(PERE): Modify BoundingBox so we don't need to create a new Rectangle each time ?
+            //             Maybe we should keep the position of the ball and its size separate, since the
+            //             size will not change while playing.
+            BoundingBox = new Rectangle((640 / 2) - BALL_RADIUS,
+                                        (480 / 2) - BALL_RADIUS,
+                                        ballDiameter,
+                                        ballDiameter);
+            // TODO(PERE): We had random.Next(2, 7) before, check what it does.
+            // TODO(PERE): Make the intention clearer for the yPos by doing _random.Next(0, 1) == 0?
+            // TODO(PERE): Use class constants for the min and max values
+            Velocity = new Point(leftSideScored ? random.Next(3, 7) : -random.Next(3, 7),
+                                 random.Next() > int.MaxValue / 2 ? random.Next(3, 7) : -random.Next(3, 7));
+        }
+
         // TODO(EPRE): Do something better for the params
         public void ReverseVelocity(bool x = false, bool y = false)
         {
@@ -161,6 +169,7 @@
 
         public void SetPosition(Point point)
         {
+            // TODO(PERE): Modify BoundingBox so we don't need to create a new Rectangle each time ?
             BoundingBox = new Rectangle(point, BoundingBox.Size);
         }
     }
