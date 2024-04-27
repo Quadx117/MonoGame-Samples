@@ -26,7 +26,7 @@ internal class ParticleManager
             particle.Update(totalSecondsElapsed);
         }
 
-        _particles.RemoveAll(p => p.isFinished);
+        _ = _particles.RemoveAll(p => p.isFinished);
     }
 
     public static void UpdateEmitters(float totalSecondsElapsed)
