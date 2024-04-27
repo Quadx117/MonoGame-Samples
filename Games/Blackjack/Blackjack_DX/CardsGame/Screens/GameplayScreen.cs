@@ -52,8 +52,10 @@ class GameplayScreen : GameScreen
         safeArea = ScreenManager.SafeArea;
 
         // Initialize virtual cursor
-        inputHelper = new InputHelper(ScreenManager.Game);
-        inputHelper.DrawOrder = 1000;
+        inputHelper = new InputHelper(ScreenManager.Game)
+        {
+            DrawOrder = 1000
+        };
         ScreenManager.Game.Components.Add(inputHelper);
         // Ignore the curser when not run in Xbox
 #if !XBOX

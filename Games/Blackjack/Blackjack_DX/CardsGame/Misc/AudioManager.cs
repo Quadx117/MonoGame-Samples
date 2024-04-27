@@ -37,9 +37,11 @@ public class AudioManager : GameComponent
     /// <param name="game">The game that this component will be attached to.</param>
     public static void Initialize(Game game)
     {
-        Instance = new AudioManager(game);
-        Instance.soundBank = new Dictionary<string, SoundEffectInstance>();
-        Instance.musicBank = new Dictionary<string, Song>();
+        Instance = new AudioManager(game)
+        {
+            soundBank = new Dictionary<string, SoundEffectInstance>(),
+            musicBank = new Dictionary<string, Song>()
+        };
 
         game.Components.Add(Instance);
     }
