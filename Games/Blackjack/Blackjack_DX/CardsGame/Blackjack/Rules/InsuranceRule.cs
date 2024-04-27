@@ -40,6 +40,7 @@ class InsuranceRule : GameRule
                 {
                     FireRuleMatch(EventArgs.Empty);
                 }
+
                 done = true;
             }
         }

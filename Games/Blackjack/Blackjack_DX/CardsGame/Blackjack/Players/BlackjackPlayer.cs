@@ -144,6 +144,7 @@ public class BlackjackPlayer : Player
         {
             return false;
         }
+
         BetAmount += amount;
         Balance -= amount;
         return true;

@@ -237,6 +237,7 @@ public class CardPacket
 
             return card;
         }
+
         return null;
     }
 

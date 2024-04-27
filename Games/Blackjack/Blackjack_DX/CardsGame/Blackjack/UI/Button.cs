@@ -88,6 +88,7 @@ public class Button : AnimatedGameComponent
         {
             RegularTexture = Game.Content.Load<Texture2D>(@"Images\" + regularTexture);
         }
+
         if (pressedTexture != null)
         {
             PressedTexture = Game.Content.Load<Texture2D>(@"Images\" + pressedTexture);
@@ -170,6 +171,7 @@ public class Button : AnimatedGameComponent
                     isPressed = false;
 #endif
                 }
+
                 isKeyDown = true;
             }
         }

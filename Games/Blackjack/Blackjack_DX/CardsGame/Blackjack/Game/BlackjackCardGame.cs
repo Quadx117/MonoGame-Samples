@@ -161,11 +161,13 @@ class BlackjackCardGame : CardsGame
             {
                 ShowShuffleAnimation();
             }
+
             break;
             case BlackjackGameState.Betting:
             {
                 EnableButtons(false);
             }
+
             break;
             case BlackjackGameState.Dealing:
             {
@@ -174,6 +176,7 @@ class BlackjackCardGame : CardsGame
                 Deal();
                 StartPlaying();
             }
+
             break;
             case BlackjackGameState.Playing:
             {
@@ -182,6 +185,7 @@ class BlackjackCardGame : CardsGame
                 {
                     ((BlackjackPlayer)players[playerIndex]).CalculateValues();
                 }
+
                 dealerPlayer.CalculateValues();
 
                 // Make sure no animations are running
@@ -213,6 +217,7 @@ class BlackjackCardGame : CardsGame
                     EnableButtons(false);
                 }
             }
+
             break;
             case BlackjackGameState.RoundEnd:
             {
@@ -232,11 +237,13 @@ class BlackjackCardGame : CardsGame
                     }
                 }
             }
+
             break;
             case BlackjackGameState.GameOver:
             {
 
             }
+
             break;
             default: break;
         }
@@ -301,10 +308,12 @@ class BlackjackCardGame : CardsGame
             {
                 ShowPlayerValues();
             }
+
             break;
             case BlackjackGameState.GameOver:
             {
             }
+
             break;
             case BlackjackGameState.RoundEnd:
             {
@@ -312,8 +321,10 @@ class BlackjackCardGame : CardsGame
                 {
                     ShowDealerValue();
                 }
+
                 ShowPlayerValues();
             }
+
             break;
             default: break;
         }
@@ -393,6 +404,7 @@ class BlackjackCardGame : CardsGame
                                 (player.FirstValue + 10).ToString();
                         }
                     }
+
                     playerHandValueTexts[player] = playerHandValueText;
                 }
                 else
@@ -419,6 +431,7 @@ class BlackjackCardGame : CardsGame
                                     @"\" + (player.SecondValue + 10).ToString();
                             }
                         }
+
                         playerSecondHandValueTexts[player] =
                             playerSecondHandValueText;
                     }
@@ -521,6 +534,7 @@ class BlackjackCardGame : CardsGame
                 return players[playerIndex];
             }
         }
+
         return null;
     }
 
@@ -808,6 +822,7 @@ class BlackjackCardGame : CardsGame
                 {
                     playerValue += 10;
                 }
+
                 break;
             case HandTypes.Second:
                 blackjack = player.SecondBlackJack;
@@ -819,6 +834,7 @@ class BlackjackCardGame : CardsGame
                 {
                     playerValue += 10;
                 }
+
                 break;
             default:
                 throw new Exception(
@@ -865,6 +881,7 @@ class BlackjackCardGame : CardsGame
                                 ? "win"
                                 : "push";
         }
+
         return assetName;
     }
 
@@ -1036,6 +1053,7 @@ class BlackjackCardGame : CardsGame
                 }
             }
         }
+
         return false;
     }
 
@@ -1220,6 +1238,7 @@ class BlackjackCardGame : CardsGame
                     {
                         player.CurrentHandType = HandTypes.Second;
                     }
+
                     break;
                 case HandTypes.Second:
                     turnFinishedByPlayer[players.IndexOf(player)] = true;
@@ -1316,10 +1335,12 @@ class BlackjackCardGame : CardsGame
                     // The first hand's bet is double, add one third of the total
                     betGameComponent.AddChips(playerIndex, player.BetAmount / 3f, false, true);
                 }
+
                 break;
             default:
                 throw new Exception("Player has an unsupported hand type.");
         }
+
         Hit();
         Stand();
     }
@@ -1466,6 +1487,7 @@ class BlackjackCardGame : CardsGame
                 {
                     turnFinishedByPlayer[players.IndexOf(player)] = true;
                 }
+
                 break;
             case HandTypes.Second:
                 player.SecondBust = true;
@@ -1504,6 +1526,7 @@ class BlackjackCardGame : CardsGame
                 {
                     turnFinishedByPlayer[players.IndexOf(player)] = true;
                 }
+
                 break;
             case HandTypes.Second:
                 player.SecondBlackJack = true;
@@ -1511,6 +1534,7 @@ class BlackjackCardGame : CardsGame
                 {
                     turnFinishedByPlayer[players.IndexOf(player)] = true;
                 }
+
                 break;
             default:
                 throw new Exception(

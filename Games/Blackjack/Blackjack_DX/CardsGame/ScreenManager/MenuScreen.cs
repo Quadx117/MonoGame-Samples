@@ -343,6 +343,7 @@ abstract class MenuScreen : GameScreen
                 maxWidth = width;
             }
         }
+
         maxWidth += 20;
 
         for (int i = 0; i < menuEntries.Count; i++)

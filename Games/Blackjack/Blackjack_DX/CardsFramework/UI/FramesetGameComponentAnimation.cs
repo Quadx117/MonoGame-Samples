@@ -70,6 +70,7 @@ public class FramesetGameComponentAnimation : AnimatedGameComponentAnimation
             Component.CurrentFrame = null;
             Component.CurrentSegment = null;
         }
+
         base.Run(gameTime);
     }
 }

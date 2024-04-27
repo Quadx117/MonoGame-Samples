@@ -54,6 +54,7 @@ public class BlackJackRule : GameRule
                     });
                 }
             }
+
             if (!players[playerIndex].SecondBlackJack)
             {
                 // Check to see if the hand is eligible for a Black Jack

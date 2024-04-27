@@ -94,6 +94,7 @@ public class AnimatedGameComponentAnimation
                 PerformWhenDone = null;
             }
         }
+
         return isDone;
     }
 
@@ -113,10 +114,12 @@ public class AnimatedGameComponentAnimation
                     PerformBeforeStart(PerformBeforSartArgs);
                     PerformBeforeStart = null;
                 }
+
                 StartTime = DateTime.Now;
                 isStarted = true;
             }
         }
+
         return isStarted;
     }
 

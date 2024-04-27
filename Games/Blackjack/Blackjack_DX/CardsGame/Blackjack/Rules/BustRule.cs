@@ -50,6 +50,7 @@ public class BustRule : GameRule
                     });
                 }
             }
+
             if (!players[playerIndex].SecondBust)
             {
                 if ((players[playerIndex].IsSplit &&

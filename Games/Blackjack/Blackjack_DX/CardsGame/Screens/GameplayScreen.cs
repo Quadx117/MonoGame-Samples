@@ -211,6 +211,7 @@ class GameplayScreen : GameScreen
                     pauseEnabledComponents.Add(pauseComponent);
                     pauseComponent.Enabled = false;
                 }
+
                 if (pauseComponent.Visible)
                 {
                     pauseVisibleComponents.Add(pauseComponent);
@@ -230,6 +231,7 @@ class GameplayScreen : GameScreen
         {
             component.Enabled = true;
         }
+
         foreach (DrawableGameComponent component in pauseVisibleComponents)
         {
             component.Visible = true;

@@ -29,6 +29,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
                     return true;
                 }
             }
+
             return false;
         }
     }
@@ -94,6 +95,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
                     GetCardRelativePosition(animationIndex);
             }
         }
+
         base.Update(gameTime);
     }
 
@@ -123,6 +125,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
                 return animationIndex;
             }
         }
+
         return -1;
     }
 

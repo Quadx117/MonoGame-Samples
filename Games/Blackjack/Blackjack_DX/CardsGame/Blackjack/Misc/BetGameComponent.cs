@@ -140,6 +140,7 @@ public class BetGameComponent : DrawableGameComponent
             chipsAssets.Add(assetNames[chipIndex], Game.Content.Load<Texture2D>(
                 string.Format(@"Images\Chips\chip{0}", assetNames[chipIndex])));
         }
+
         positions = new Vector2[assetNames.Length];
 
         base.LoadContent();
@@ -219,6 +220,7 @@ public class BetGameComponent : DrawableGameComponent
                 return playerIndex;
             }
         }
+
         return -1;
     }
 
@@ -258,6 +260,7 @@ public class BetGameComponent : DrawableGameComponent
                 {
                     AddChip(GetCurrentPlayer(), chipValue, false);
                 }
+
                 isKeyDown = true;
             }
         }
@@ -706,6 +709,7 @@ public class BetGameComponent : DrawableGameComponent
                 factor = 0; // Push
             }
         }
+
         return factor;
     }
 
@@ -724,6 +728,7 @@ public class BetGameComponent : DrawableGameComponent
         {
             Game.Components.Remove(currentChipComponent[chipComponentIndex]);
         }
+
         currentChipComponent.Clear();
     }
 
@@ -742,6 +747,7 @@ public class BetGameComponent : DrawableGameComponent
         {
             ((BlackjackCardGame)cardGame).ShowPlayerPass(playerIndex);
         }
+
         ((BlackjackPlayer)players[playerIndex]).IsDoneBetting = true;
         currentChipComponent.Clear();
         currentBet = 0;

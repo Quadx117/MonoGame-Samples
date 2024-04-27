@@ -263,6 +263,7 @@ public class AudioManager : GameComponent
                 {
                     item.Value.Dispose();
                 }
+
                 soundBank.Clear();
                 soundBank = null;
             }
