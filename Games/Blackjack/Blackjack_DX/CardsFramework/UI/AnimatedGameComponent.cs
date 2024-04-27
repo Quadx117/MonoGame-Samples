@@ -89,7 +89,6 @@ public class AnimatedGameComponent : DrawableGameComponent
                 runningAnimations.RemoveAt(animationIndex);
                 animationIndex--;
             }
-
         }
     }
 

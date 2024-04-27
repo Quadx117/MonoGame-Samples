@@ -131,7 +131,6 @@ class GameplayScreen : GameScreen
         {
             blackJackGame.Draw(gameTime);
         }
-
     }
 
     /// <summary>
