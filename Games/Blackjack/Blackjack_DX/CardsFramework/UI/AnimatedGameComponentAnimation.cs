@@ -143,6 +143,6 @@ public class AnimatedGameComponentAnimation
     /// <param name="gameTime">Game time information.</param>
     public virtual void Run(GameTime gameTime)
     {
-        bool isStarted = IsStarted();
+        _ = IsStarted();
     }
 }

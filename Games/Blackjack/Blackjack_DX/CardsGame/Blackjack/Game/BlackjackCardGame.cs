@@ -290,7 +290,7 @@ class BlackjackCardGame : CardsGame
     void PlayShuffleAndRemoveComponent(object obj)
     {
         AudioManager.PlaySound("Shuffle");
-        Game.Components.Remove((AnimatedGameComponent)obj);
+        _ = Game.Components.Remove((AnimatedGameComponent)obj);
     }
 
     /// <summary>
@@ -443,8 +443,8 @@ class BlackjackCardGame : CardsGame
             }
             else
             {
-                playerHandValueTexts.TryGetValue(player, out playerHandValueText);
-                playerSecondHandValueTexts.TryGetValue(
+                _ = playerHandValueTexts.TryGetValue(player, out playerHandValueText);
+                _ = playerSecondHandValueTexts.TryGetValue(
                     player, out playerSecondHandValueText);
             }
 
@@ -1181,7 +1181,7 @@ class BlackjackCardGame : CardsGame
         for (int playerIndex = 0; playerIndex < players.Count; playerIndex++)
         {
             (players[playerIndex] as BlackjackPlayer).ResetValues();
-            players[playerIndex].Hand.DealCardsToHand(deadCards, players[playerIndex].Hand.Count);
+            _ = players[playerIndex].Hand.DealCardsToHand(deadCards, players[playerIndex].Hand.Count);
             turnFinishedByPlayer[playerIndex] = false;
             animatedHands[playerIndex] = null;
             animatedSecondHands[playerIndex] = null;
@@ -1192,7 +1192,7 @@ class BlackjackCardGame : CardsGame
         betGameComponent.Enabled = true;
 
         // Reset dealer
-        dealerPlayer.Hand.DealCardsToHand(deadCards, dealerPlayer.Hand.Count);
+        _ = dealerPlayer.Hand.DealCardsToHand(deadCards, dealerPlayer.Hand.Count);
         dealerPlayer.ResetValues();
 
         // Reset rules

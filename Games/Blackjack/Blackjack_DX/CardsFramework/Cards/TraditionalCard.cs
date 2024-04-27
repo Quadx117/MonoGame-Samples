@@ -130,7 +130,7 @@ public class TraditionalCard
     /// <param name="hand">The receiving hand.</param>
     public void MoveToHand(Hand hand)
     {
-        HoldingCardCollection.Remove(this);
+        _ = HoldingCardCollection.Remove(this);
         HoldingCardCollection = hand;
         hand.Add(this);
     }

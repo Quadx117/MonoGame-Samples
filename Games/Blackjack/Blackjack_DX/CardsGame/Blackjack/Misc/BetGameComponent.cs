@@ -726,7 +726,7 @@ public class BetGameComponent : DrawableGameComponent
         ((BlackjackPlayer)players[GetCurrentPlayer()]).ClearBet();
         for (int chipComponentIndex = 0; chipComponentIndex < currentChipComponent.Count; chipComponentIndex++)
         {
-            Game.Components.Remove(currentChipComponent[chipComponentIndex]);
+            _ = Game.Components.Remove(currentChipComponent[chipComponentIndex]);
         }
 
         currentChipComponent.Clear();

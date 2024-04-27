@@ -75,7 +75,7 @@ class GameplayScreen : GameScreen
     /// </summary>
     public override void UnloadContent()
     {
-        ScreenManager.Game.Components.Remove(inputHelper);
+        _ = ScreenManager.Game.Components.Remove(inputHelper);
 
         base.UnloadContent();
     }

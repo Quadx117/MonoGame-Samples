@@ -173,10 +173,10 @@ public class InputState
     /// </summary>
     public bool IsMenuUp(PlayerIndex? controllingPlayer)
     {
-        return IsNewKeyPress(Keys.Up, controllingPlayer, out PlayerIndex playerIndex) ||
-               IsNewKeyPress(Keys.Left, controllingPlayer, out playerIndex) ||
-               IsNewButtonPress(Buttons.DPadLeft, controllingPlayer, out playerIndex) ||
-               IsNewButtonPress(Buttons.LeftThumbstickLeft, controllingPlayer, out playerIndex);
+        return IsNewKeyPress(Keys.Up, controllingPlayer, out _) ||
+               IsNewKeyPress(Keys.Left, controllingPlayer, out _) ||
+               IsNewButtonPress(Buttons.DPadLeft, controllingPlayer, out _) ||
+               IsNewButtonPress(Buttons.LeftThumbstickLeft, controllingPlayer, out _);
     }
 
     /// <summary>
@@ -186,10 +186,10 @@ public class InputState
     /// </summary>
     public bool IsMenuDown(PlayerIndex? controllingPlayer)
     {
-        return IsNewKeyPress(Keys.Down, controllingPlayer, out PlayerIndex playerIndex) ||
-               IsNewKeyPress(Keys.Right, controllingPlayer, out playerIndex) ||
-               IsNewButtonPress(Buttons.DPadRight, controllingPlayer, out playerIndex) ||
-               IsNewButtonPress(Buttons.LeftThumbstickRight, controllingPlayer, out playerIndex);
+        return IsNewKeyPress(Keys.Down, controllingPlayer, out _) ||
+               IsNewKeyPress(Keys.Right, controllingPlayer, out _) ||
+               IsNewButtonPress(Buttons.DPadRight, controllingPlayer, out _) ||
+               IsNewButtonPress(Buttons.LeftThumbstickRight, controllingPlayer, out _);
     }
 
     /// <summary>
@@ -199,8 +199,8 @@ public class InputState
     /// </summary>
     public bool IsPauseGame(PlayerIndex? controllingPlayer)
     {
-        return IsNewKeyPress(Keys.Escape, controllingPlayer, out PlayerIndex playerIndex) ||
-               IsNewButtonPress(Buttons.Back, controllingPlayer, out playerIndex) ||
-               IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex);
+        return IsNewKeyPress(Keys.Escape, controllingPlayer, out _) ||
+               IsNewButtonPress(Buttons.Back, controllingPlayer, out _) ||
+               IsNewButtonPress(Buttons.Start, controllingPlayer, out _);
     }
 }

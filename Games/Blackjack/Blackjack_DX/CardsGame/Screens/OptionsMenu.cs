@@ -85,7 +85,7 @@ class OptionsMenu : MenuScreen
     /// <param name="playerIndex"></param>
     protected override void OnCancel(PlayerIndex playerIndex)
     {
-        ScreenManager.Game.Components.Remove(card);
+        _ = ScreenManager.Game.Components.Remove(card);
         ExitScreen();
     }
 

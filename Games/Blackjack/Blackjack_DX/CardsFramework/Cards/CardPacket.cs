@@ -231,7 +231,7 @@ public class CardPacket
     {
         if (Cards.Contains(card))
         {
-            Cards.Remove(card);
+            _ = Cards.Remove(card);
 
             LostCard?.Invoke(this, new CardEventArgs() { Card = card });
 

@@ -186,7 +186,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
         {
             if (heldAnimatedCards[animationIndex].Card == e.Card)
             {
-                Game.Components.Remove(heldAnimatedCards[animationIndex]);
+                _ = Game.Components.Remove(heldAnimatedCards[animationIndex]);
                 heldAnimatedCards.RemoveAt(animationIndex);
                 return;
             }
