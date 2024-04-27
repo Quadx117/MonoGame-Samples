@@ -131,7 +131,7 @@ public class PlayerPad
         };
     }
 
-    private int GetPad(PlayerIndex index)
+    private static int GetPad(PlayerIndex index)
     {
         GamePadState state = GamePad.GetState(index);
         if (!state.IsConnected)
@@ -158,7 +158,7 @@ public class PlayerPad
         }
     }
 
-    private int GetKeyboard()
+    private static int GetKeyboard()
     {
         // TODO(PERE): Use other keys for 2 player games on the same keyboard?
         KeyboardState keyboard = Keyboard.GetState();
