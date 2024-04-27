@@ -127,10 +127,7 @@ class GameplayScreen : GameScreen
     {
         base.Draw(gameTime);
 
-        if (blackJackGame != null)
-        {
-            blackJackGame.Draw(gameTime);
-        }
+        blackJackGame?.Draw(gameTime);
     }
 
     /// <summary>
