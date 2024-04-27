@@ -306,55 +306,53 @@ public class ScreenManager : DrawableGameComponent
     public void SerializeState()
     {
         // open up isolated storage
-        using (IsolatedStorageFile storage = IsolatedStorageFile.GetUserStoreForApplication())
+        using IsolatedStorageFile storage = IsolatedStorageFile.GetUserStoreForApplication();
+
+        // if our screen manager directory already exists, delete the contents
+        if (storage.DirectoryExists("ScreenManager"))
         {
-            // if our screen manager directory already exists, delete the contents
-            if (storage.DirectoryExists("ScreenManager"))
-            {
-                DeleteState(storage);
-            }
+            DeleteState(storage);
+        }
 
-            // otherwise just create the directory
-            else
-            {
-                storage.CreateDirectory("ScreenManager");
-            }
+        // otherwise just create the directory
+        else
+        {
+            storage.CreateDirectory("ScreenManager");
+        }
 
-            // create a file we'll use to store the list of screens in the stack
-            using (IsolatedStorageFileStream stream = storage.CreateFile("ScreenManager\\ScreenList.dat"))
-            {
-                using (BinaryWriter writer = new BinaryWriter(stream))
-                {
-                    // write out the full name of all the types in our stack so we can
-                    // recreate them if needed.
-                    foreach (GameScreen screen in screens)
-                    {
-                        if (screen.IsSerializable)
-                        {
-                            writer.Write(screen.GetType().AssemblyQualifiedName);
-                        }
-                    }
-                }
-            }
+        // create a file we'll use to store the list of screens in the stack
+        using (IsolatedStorageFileStream stream = storage.CreateFile("ScreenManager\\ScreenList.dat"))
+        {
+            using BinaryWriter writer = new BinaryWriter(stream);
 
-            // now we create a new file stream for each screen so it can save its state
-            // if it needs to. we name each file "ScreenX.dat" where X is the index of
-            // the screen in the stack, to ensure the files are uniquely named
-            int screenIndex = 0;
+            // write out the full name of all the types in our stack so we can
+            // recreate them if needed.
             foreach (GameScreen screen in screens)
             {
                 if (screen.IsSerializable)
                 {
-                    string fileName = string.Format("ScreenManager\\Screen{0}.dat", screenIndex);
-
-                    // open up the stream and let the screen serialize whatever state it wants
-                    using (IsolatedStorageFileStream stream = storage.CreateFile(fileName))
-                    {
-                        screen.Serialize(stream);
-                    }
-
-                    screenIndex++;
+                    writer.Write(screen.GetType().AssemblyQualifiedName);
                 }
+            }
+        }
+
+        // now we create a new file stream for each screen so it can save its state
+        // if it needs to. we name each file "ScreenX.dat" where X is the index of
+        // the screen in the stack, to ensure the files are uniquely named
+        int screenIndex = 0;
+        foreach (GameScreen screen in screens)
+        {
+            if (screen.IsSerializable)
+            {
+                string fileName = string.Format("ScreenManager\\Screen{0}.dat", screenIndex);
+
+                // open up the stream and let the screen serialize whatever state it wants
+                using (IsolatedStorageFileStream stream = storage.CreateFile(fileName))
+                {
+                    screen.Serialize(stream);
+                }
+
+                screenIndex++;
             }
         }
     }
@@ -362,60 +360,55 @@ public class ScreenManager : DrawableGameComponent
     public bool DeserializeState()
     {
         // open up isolated storage
-        using (IsolatedStorageFile storage = IsolatedStorageFile.GetUserStoreForApplication())
+        using IsolatedStorageFile storage = IsolatedStorageFile.GetUserStoreForApplication();
+
+        // see if our saved state directory exists
+        if (storage.DirectoryExists("ScreenManager"))
         {
-            // see if our saved state directory exists
-            if (storage.DirectoryExists("ScreenManager"))
+            try
             {
-                try
+                // see if we have a screen list
+                if (storage.FileExists("ScreenManager\\ScreenList.dat"))
                 {
-                    // see if we have a screen list
-                    if (storage.FileExists("ScreenManager\\ScreenList.dat"))
-                    {
-                        // load the list of screen types
-                        using (IsolatedStorageFileStream stream =
-                            storage.OpenFile("ScreenManager\\ScreenList.dat", FileMode.Open,
-                            FileAccess.Read))
-                        {
-                            using (BinaryReader reader = new BinaryReader(stream))
-                            {
-                                while (reader.BaseStream.Position < reader.BaseStream.Length)
-                                {
-                                    // read a line from our file
-                                    string line = reader.ReadString();
+                    // load the list of screen types
+                    using IsolatedStorageFileStream stream =
+                        storage.OpenFile("ScreenManager\\ScreenList.dat", FileMode.Open,
+                        FileAccess.Read);
 
-                                    // if it isn't blank, we can create a screen from it
-                                    if (!string.IsNullOrEmpty(line))
-                                    {
-                                        Type screenType = Type.GetType(line);
-                                        GameScreen screen = Activator.CreateInstance(screenType) as GameScreen;
-                                        AddScreen(screen, PlayerIndex.One);
-                                    }
-                                }
-                            }
+                    using BinaryReader reader = new BinaryReader(stream);
+
+                    while (reader.BaseStream.Position < reader.BaseStream.Length)
+                    {
+                        // read a line from our file
+                        string line = reader.ReadString();
+
+                        // if it isn't blank, we can create a screen from it
+                        if (!string.IsNullOrEmpty(line))
+                        {
+                            Type screenType = Type.GetType(line);
+                            GameScreen screen = Activator.CreateInstance(screenType) as GameScreen;
+                            AddScreen(screen, PlayerIndex.One);
                         }
                     }
-
-                    // next we give each screen a chance to deserialize from the disk
-                    for (int i = 0; i < screens.Count; i++)
-                    {
-                        string filename = string.Format("ScreenManager\\Screen{0}.dat", i);
-                        using (IsolatedStorageFileStream stream = storage.OpenFile(filename,
-                            FileMode.Open, FileAccess.Read))
-                        {
-                            screens[i].Deserialize(stream);
-                        }
-                    }
-
-                    return true;
                 }
-                catch (Exception)
+
+                // next we give each screen a chance to deserialize from the disk
+                for (int i = 0; i < screens.Count; i++)
                 {
-                    // if an exception was thrown while reading, odds are we cannot recover
-                    // from the saved state, so we will delete it so the game can correctly
-                    // launch.
-                    DeleteState(storage);
+                    string filename = string.Format("ScreenManager\\Screen{0}.dat", i);
+                    using IsolatedStorageFileStream stream = storage.OpenFile(filename,
+                        FileMode.Open, FileAccess.Read);
+                    screens[i].Deserialize(stream);
                 }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                // if an exception was thrown while reading, odds are we cannot recover
+                // from the saved state, so we will delete it so the game can correctly
+                // launch.
+                DeleteState(storage);
             }
         }
 
