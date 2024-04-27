@@ -22,7 +22,7 @@ abstract class MenuScreen : GameScreen
     // the number of pixels to pad above and below menu entries for touch input
     const int menuEntryPadding = 35;
 
-    List<MenuEntry> menuEntries = new List<MenuEntry>();
+    List<MenuEntry> menuEntries = new();
     int selectedEntry = 0;
     string menuTitle;
 #if WINDOWS
@@ -113,7 +113,7 @@ abstract class MenuScreen : GameScreen
             {
                 isMouseDown = false;
                 // convert the position to a Point that we can test against a Rectangle
-                Point clickLocation = new Point(state.X, state.Y);
+                Point clickLocation = new(state.X, state.Y);
 
                 // iterate the entries to see if any were tapped
                 for (int i = 0; i < menuEntries.Count; i++)
@@ -136,7 +136,7 @@ abstract class MenuScreen : GameScreen
             isMouseDown = true;
 
             // convert the position to a Point that we can test against a Rectangle
-            Point clickLocation = new Point(state.X, state.Y);
+            Point clickLocation = new(state.X, state.Y);
 
             // iterate the entries to see if any were tapped
             for (int i = 0; i < menuEntries.Count; i++)
@@ -238,7 +238,7 @@ abstract class MenuScreen : GameScreen
         float transitionOffset = (float)Math.Pow(TransitionPosition, 2);
 
         // start at Y = 475; each X value is generated per entry
-        Vector2 position = new Vector2(0f,
+        Vector2 position = new(0f,
             ScreenManager.Game.Window.ClientBounds.Height / 2 -
             (menuEntries[0].GetHeight(this) + (menuEntryPadding * 2) * menuEntries.Count));
 
@@ -314,7 +314,7 @@ abstract class MenuScreen : GameScreen
         float transitionOffset = (float)Math.Pow(TransitionPosition, 2);
 
         // Draw the menu title centered on the screen
-        Vector2 titlePosition = new Vector2(graphics.Viewport.Width / 2, 375);
+        Vector2 titlePosition = new(graphics.Viewport.Width / 2, 375);
         Vector2 titleOrigin = font.MeasureString(menuTitle) / 2;
         Color titleColor = new Color(192, 192, 192) * TransitionAlpha;
         float titleScale = 1.25f;

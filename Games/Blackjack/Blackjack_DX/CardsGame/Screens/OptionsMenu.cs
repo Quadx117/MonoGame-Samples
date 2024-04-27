@@ -16,7 +16,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 class OptionsMenu : MenuScreen
 {
-    Dictionary<string, Texture2D> themes = new Dictionary<string, Texture2D>();
+    Dictionary<string, Texture2D> themes = new();
     AnimatedGameComponent card;
     Texture2D background;
     Rectangle safeArea;
@@ -37,8 +37,8 @@ class OptionsMenu : MenuScreen
     {
         safeArea = ScreenManager.SafeArea;
         // Create our menu entries.
-        MenuEntry themeGameMenuEntry = new MenuEntry("Deck");
-        MenuEntry returnMenuEntry = new MenuEntry("Return");
+        MenuEntry themeGameMenuEntry = new("Deck");
+        MenuEntry returnMenuEntry = new("Return");
 
         // Hook up menu event handlers.
         themeGameMenuEntry.Selected += ThemeGameMenuEntrySelected;

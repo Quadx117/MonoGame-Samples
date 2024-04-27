@@ -33,10 +33,10 @@ public class BetGameComponent : DrawableGameComponent
 
     Vector2 ChipOffset { get; set; }
     static float insuranceYPosition = 120 * BlackjackGame.HeightScale;
-    static Vector2 secondHandOffset = new Vector2(25 * BlackjackGame.WidthScale,
-                                                  30 * BlackjackGame.HeightScale);
+    static Vector2 secondHandOffset = new(25 * BlackjackGame.WidthScale,
+                                          30 * BlackjackGame.HeightScale);
 
-    List<AnimatedGameComponent> currentChipComponent = new List<AnimatedGameComponent>();
+    List<AnimatedGameComponent> currentChipComponent = new();
     int currentBet = 0;
     InputState input;
     InputHelper inputHelper;
@@ -277,8 +277,8 @@ public class BetGameComponent : DrawableGameComponent
     {
         Rectangle size;
         // Calculate the bounds of the position
-        Rectangle touchTap = new Rectangle((int)position.X - 1,
-            (int)position.Y - 1, 2, 2);
+        Rectangle touchTap = new((int)position.X - 1,
+                                 (int)position.Y - 1, 2, 2);
         for (int chipIndex = 0; chipIndex < chipsAssets.Count; chipIndex++)
         {
             // Calculate the bounds of the asset
@@ -345,7 +345,7 @@ public class BetGameComponent : DrawableGameComponent
         {
             currentBet += chipValue;
             // Add chip component
-            AnimatedGameComponent chipComponent = new AnimatedGameComponent(cardGame,
+            AnimatedGameComponent chipComponent = new(cardGame,
                 chipsAssets[chipValue])
             {
                 Visible = false
@@ -533,7 +533,7 @@ public class BetGameComponent : DrawableGameComponent
     private void AddInsuranceChipAnimation(float amount)
     {
         // Add chip component
-        AnimatedGameComponent chipComponent = new AnimatedGameComponent(cardGame, blankChip)
+        AnimatedGameComponent chipComponent = new(cardGame, blankChip)
         {
             TextColor = Color.Black,
             Enabled = true,

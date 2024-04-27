@@ -29,11 +29,9 @@ public enum BlackjackGameState
 
 class BlackjackCardGame : CardsGame
 {
-    Dictionary<Player, string> playerHandValueTexts =
-        new Dictionary<Player, string>();
-    Dictionary<Player, string> playerSecondHandValueTexts =
-        new Dictionary<Player, string>();
-    private Hand deadCards = new Hand(); // stores used cards
+    Dictionary<Player, string> playerHandValueTexts = new();
+    Dictionary<Player, string> playerSecondHandValueTexts = new();
+    private Hand deadCards = new(); // stores used cards
     private BlackjackPlayer dealerPlayer;
     bool[] turnFinishedByPlayer;
     TimeSpan dealDuration = TimeSpan.FromMilliseconds(500);
@@ -44,20 +42,20 @@ class BlackjackCardGame : CardsGame
 
     BetGameComponent betGameComponent;
     AnimatedHandGameComponent dealerHandComponent;
-    readonly Dictionary<string, Button> buttons = new Dictionary<string, Button>();
+    readonly Dictionary<string, Button> buttons = new();
     Button newGame;
     bool showInsurance;
 
     // An offset used for drawing the second hand which appears after a split in
     // the correct location.
-    Vector2 secondHandOffset =
-        new Vector2(100 * BlackjackGame.WidthScale, 25 * BlackjackGame.HeightScale);
-    static Vector2 ringOffset = new Vector2(0, 110);
+    Vector2 secondHandOffset = new(100 * BlackjackGame.WidthScale,
+                                   25 * BlackjackGame.HeightScale);
+    static Vector2 ringOffset = new(0, 110);
 
 #if WINDOWS_PHONE
     Vector2 frameSize = new Vector2(162, 162);
 #else
-    Vector2 frameSize = new Vector2(180, 180);
+    Vector2 frameSize = new(180, 180);
 #endif
 
     public BlackjackGameState State { get; set; }
@@ -106,7 +104,7 @@ class BlackjackCardGame : CardsGame
         string[] buttonsText = { "Hit", "Stand", "Double", "Split", "Insurance" };
         for (int buttonIndex = 0; buttonIndex < buttonsText.Length; buttonIndex++)
         {
-            Button button = new Button("ButtonRegular", "ButtonPressed",
+            Button button = new("ButtonRegular", "ButtonPressed",
                 screenManager.input, this)
             {
                 Text = buttonsText[buttonIndex],
@@ -250,7 +248,7 @@ class BlackjackCardGame : CardsGame
     private void ShowShuffleAnimation()
     {
         // Add shuffling animation
-        AnimatedGameComponent animationComponent = new AnimatedGameComponent(this.Game)
+        AnimatedGameComponent animationComponent = new(this.Game)
         {
             CurrentPosition = GameTable.DealerPosition,
             Visible = false
@@ -702,7 +700,7 @@ class BlackjackCardGame : CardsGame
 
         // Add the animation component 
         AnimatedGameComponent animationComponent =
-            new AnimatedGameComponent(this, cardsAssets[assetName])
+            new(this, cardsAssets[assetName])
             {
                 CurrentPosition = currentPosition,
                 Visible = false
@@ -1071,8 +1069,8 @@ class BlackjackCardGame : CardsGame
 
         // Add a button to return to the main menu
         Rectangle bounds = Game.GraphicsDevice.Viewport.Bounds;
-        Vector2 center = new Vector2(bounds.Center.X, bounds.Center.Y);
-        Button backButton = new Button("ButtonRegular", "ButtonPressed", screenManager.input, this)
+        Vector2 center = new(bounds.Center.X, bounds.Center.Y);
+        Button backButton = new("ButtonRegular", "ButtonPressed", screenManager.input, this)
         {
             Bounds = new Rectangle((int)center.X - 100, (int)center.Y + 80, 200, 50),
             Font = Font,
@@ -1392,7 +1390,7 @@ class BlackjackCardGame : CardsGame
     public void ShowPlayerPass(int indexPlayer)
     {
         // Add animation component
-        AnimatedGameComponent passComponent = new AnimatedGameComponent(this, cardsAssets["pass"])
+        AnimatedGameComponent passComponent = new(this, cardsAssets["pass"])
         {
             CurrentPosition = GameTable.PlaceOrder(indexPlayer),
             Visible = false

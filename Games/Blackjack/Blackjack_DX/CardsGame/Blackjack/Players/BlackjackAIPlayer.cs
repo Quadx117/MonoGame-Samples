@@ -12,7 +12,7 @@ using CardsFramework;
 
 class BlackjackAIPlayer : BlackjackPlayer
 {
-    static Random random = new Random();
+    static Random random = new();
 
     public event EventHandler Hit;
     public event EventHandler Stand;

@@ -26,8 +26,8 @@ class PauseScreen : MenuScreen
     public override void LoadContent()
     {
         // Create our menu entries.
-        MenuEntry returnGameMenuEntry = new MenuEntry("Back");
-        MenuEntry exitMenuEntry = new MenuEntry("Quit");
+        MenuEntry returnGameMenuEntry = new("Back");
+        MenuEntry exitMenuEntry = new("Quit");
 
         // Hook up menu event handlers.
         returnGameMenuEntry.Selected += ReturnGameMenuEntrySelected;
@@ -49,7 +49,7 @@ class PauseScreen : MenuScreen
     {
         GameScreen[] screens = ScreenManager.GetScreens();
         GameplayScreen gameplayScreen = null;
-        List<GameScreen> res = new List<GameScreen>();
+        List<GameScreen> res = new();
 
         for (int screenIndex = 0; screenIndex < screens.Length; screenIndex++)
         {

@@ -203,8 +203,8 @@ public class CardPacket
     /// </summary>
     public void Shuffle()
     {
-        Random random = new Random();
-        List<TraditionalCard> shuffledDeck = new List<TraditionalCard>();
+        Random random = new();
+        List<TraditionalCard> shuffledDeck = new();
 
         while (Cards.Count > 0)
         {
@@ -273,7 +273,7 @@ public class CardPacket
     /// <returns>A list of the cards that were moved to the hand.</returns>
     public List<TraditionalCard> DealCardsToHand(Hand destinationHand, int count)
     {
-        List<TraditionalCard> dealtCards = new List<TraditionalCard>();
+        List<TraditionalCard> dealtCards = new();
 
         for (int cardIndex = 0; cardIndex < count; cardIndex++)
         {

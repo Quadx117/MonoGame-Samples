@@ -16,7 +16,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
     public int Place { get; private set; }
     public readonly Hand Hand;
 
-    List<AnimatedCardsGameComponent> heldAnimatedCards = new List<AnimatedCardsGameComponent>();
+    List<AnimatedCardsGameComponent> heldAnimatedCards = new();
 
     public override bool IsAnimating
     {
@@ -66,7 +66,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
         for (int cardIndex = 0; cardIndex < hand.Count; cardIndex++)
         {
             AnimatedCardsGameComponent animatedCardGameComponent =
-                new AnimatedCardsGameComponent(hand[cardIndex], CardGame)
+                new(hand[cardIndex], CardGame)
                 {
                     CurrentPosition = CurrentPosition + new Vector2(30 * cardIndex, 0)
                 };
@@ -202,7 +202,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
     {
         // Add the card to the screen
         AnimatedCardsGameComponent animatedCardGameComponent =
-            new AnimatedCardsGameComponent(e.Card, CardGame) { Visible = false };
+            new(e.Card, CardGame) { Visible = false };
 
         heldAnimatedCards.Add(animatedCardGameComponent);
         Game.Components.Add(animatedCardGameComponent);

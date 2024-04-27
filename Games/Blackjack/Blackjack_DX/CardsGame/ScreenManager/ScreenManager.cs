@@ -24,10 +24,10 @@ using Microsoft.Xna.Framework.Graphics;
 /// </summary>
 public class ScreenManager : DrawableGameComponent
 {
-    List<GameScreen> screens = new List<GameScreen>();
-    List<GameScreen> screensToUpdate = new List<GameScreen>();
+    List<GameScreen> screens = new();
+    List<GameScreen> screensToUpdate = new();
 
-    public InputState input = new InputState();
+    public InputState input = new();
     bool isInitialized;
 
     /// <summary>
@@ -183,7 +183,7 @@ public class ScreenManager : DrawableGameComponent
     /// </summary>
     void TraceScreens()
     {
-        List<string> screenNames = new List<string>();
+        List<string> screenNames = new();
 
         foreach (GameScreen screen in screens)
         {
@@ -309,7 +309,7 @@ public class ScreenManager : DrawableGameComponent
         // create a file we'll use to store the list of screens in the stack
         using (IsolatedStorageFileStream stream = storage.CreateFile("ScreenManager\\ScreenList.dat"))
         {
-            using BinaryWriter writer = new BinaryWriter(stream);
+            using BinaryWriter writer = new(stream);
 
             // write out the full name of all the types in our stack so we can
             // recreate them if needed.
@@ -361,7 +361,7 @@ public class ScreenManager : DrawableGameComponent
                         storage.OpenFile("ScreenManager\\ScreenList.dat", FileMode.Open,
                         FileAccess.Read);
 
-                    using BinaryReader reader = new BinaryReader(stream);
+                    using BinaryReader reader = new(stream);
 
                     while (reader.BaseStream.Position < reader.BaseStream.Length)
                     {

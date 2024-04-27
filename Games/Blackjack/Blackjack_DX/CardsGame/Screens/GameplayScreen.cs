@@ -20,15 +20,15 @@ class GameplayScreen : GameScreen
     InputHelper inputHelper;
 
     string theme;
-    List<DrawableGameComponent> pauseEnabledComponents = new List<DrawableGameComponent>();
-    List<DrawableGameComponent> pauseVisibleComponents = new List<DrawableGameComponent>();
+    List<DrawableGameComponent> pauseEnabledComponents = new();
+    List<DrawableGameComponent> pauseVisibleComponents = new();
     Rectangle safeArea;
 
     static Vector2[] playerCardOffset = new Vector2[]
     {
-        new Vector2(100f * BlackjackGame.WidthScale, 190f * BlackjackGame.HeightScale),
-        new Vector2(336f * BlackjackGame.WidthScale, 210f * BlackjackGame.HeightScale),
-        new Vector2(570f * BlackjackGame.WidthScale, 190f * BlackjackGame.HeightScale)
+        new(100f * BlackjackGame.WidthScale, 190f * BlackjackGame.HeightScale),
+        new(336f * BlackjackGame.WidthScale, 210f * BlackjackGame.HeightScale),
+        new(570f * BlackjackGame.WidthScale, 190f * BlackjackGame.HeightScale)
     };
 
     /// <summary>
@@ -144,7 +144,7 @@ class GameplayScreen : GameScreen
         blackJackGame.AddPlayer(new BlackjackPlayer("Abe", blackJackGame));
 
         // Add AI players
-        BlackjackAIPlayer player = new BlackjackAIPlayer("Benny", blackJackGame);
+        BlackjackAIPlayer player = new("Benny", blackJackGame);
         blackJackGame.AddPlayer(player);
         player.Hit += Player_Hit;
         player.Stand += Player_Stand;

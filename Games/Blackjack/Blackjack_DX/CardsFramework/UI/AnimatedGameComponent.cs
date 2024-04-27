@@ -27,8 +27,7 @@ public class AnimatedGameComponent : DrawableGameComponent
     public Vector2 CurrentPosition { get; set; }
     public Rectangle? CurrentDestination { get; set; }
 
-    List<AnimatedGameComponentAnimation> runningAnimations =
-        new List<AnimatedGameComponentAnimation>();
+    List<AnimatedGameComponentAnimation> runningAnimations = new();
 
     /// <summary>
     /// Whether or not an animation belonging to the component is running.
@@ -119,7 +118,7 @@ public class AnimatedGameComponent : DrawableGameComponent
                 if (Text != null)
                 {
                     Vector2 size = CardGame.Font.MeasureString(Text);
-                    Vector2 textPosition = new Vector2(CurrentDestination.Value.X +
+                    Vector2 textPosition = new(CurrentDestination.Value.X +
                         CurrentDestination.Value.Width / 2 - size.X / 2,
                         CurrentDestination.Value.Y + CurrentDestination.Value.Height / 2 - size.Y / 2);
 
@@ -136,7 +135,7 @@ public class AnimatedGameComponent : DrawableGameComponent
                 if (Text != null)
                 {
                     Vector2 size = CardGame.Font.MeasureString(Text);
-                    Vector2 textPosition = new Vector2(CurrentPosition.X +
+                    Vector2 textPosition = new(CurrentPosition.X +
                         CurrentFrame.Bounds.Width / 2 - size.X / 2,
                         CurrentPosition.Y + CurrentFrame.Bounds.Height / 2 - size.Y / 2);
 

@@ -26,9 +26,9 @@ class MainMenuScreen : MenuScreen
     public override void LoadContent()
     {
         // Create our menu entries.
-        MenuEntry startGameMenuEntry = new MenuEntry("Play");
-        MenuEntry themeGameMenuEntry = new MenuEntry("Theme");
-        MenuEntry exitMenuEntry = new MenuEntry("Exit");
+        MenuEntry startGameMenuEntry = new("Play");
+        MenuEntry themeGameMenuEntry = new("Theme");
+        MenuEntry exitMenuEntry = new("Exit");
 
         // Hook up menu event handlers.
         startGameMenuEntry.Selected += StartGameMenuEntrySelected;

@@ -187,7 +187,7 @@ public class Button : AnimatedGameComponent
     /// false otherwise.</returns>
     private bool IntersectWith(Vector2 position)
     {
-        Rectangle touchTap = new Rectangle((int)position.X - 1, (int)position.Y - 1, 2, 2);
+        Rectangle touchTap = new((int)position.X - 1, (int)position.Y - 1, 2, 2);
         return Bounds.Intersects(touchTap);
     }
 

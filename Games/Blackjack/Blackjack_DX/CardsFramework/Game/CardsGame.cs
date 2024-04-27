@@ -153,7 +153,7 @@ public abstract class CardsGame
     {
         SpriteBatch = new SpriteBatch(Game.GraphicsDevice);
         // Initialize a full deck
-        CardPacket fullDeck = new CardPacket(1, 2, CardSuit.AllSuits,
+        CardPacket fullDeck = new(1, 2, CardSuit.AllSuits,
             CardsFramework.CardValue.NonJokers | CardsFramework.CardValue.Jokers);
         string assetName;
 
