@@ -1,3 +1,3 @@
 ﻿
-using var game = new Blackjack_DX.BlackjackGame();
+using Blackjack_DX.BlackjackGame game = new Blackjack_DX.BlackjackGame();
 game.Run();

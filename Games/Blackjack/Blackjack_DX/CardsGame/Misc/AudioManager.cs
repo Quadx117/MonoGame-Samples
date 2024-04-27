@@ -271,7 +271,7 @@ public class AudioManager : GameComponent
         {
             if (disposing)
             {
-                foreach (var item in soundBank)
+                foreach (KeyValuePair<string, SoundEffectInstance> item in soundBank)
                 {
                     item.Value.Dispose();
                 }
