@@ -145,6 +145,7 @@
                         _gameState = GameState.ChooseInput;
                     }
                 }
+
                 break;
                 case GameState.ChooseInput:
                 {
@@ -174,6 +175,7 @@
                         _gameState = GameState.Start;
                     }
                 }
+
                 break;
                 case GameState.Start:
                 {
@@ -184,6 +186,7 @@
                     _scores = new int[2];
                     _gameState = GameState.Play;
                 }
+
                 break;
                 case GameState.Play:
                 {
@@ -229,6 +232,7 @@
                         _gameState = GameState.CheckEnd;
                     }
                 }
+
                 break;
 
                 // TODO(PERE): Rename CheckEnd to something else (maybe GameEnd?)
@@ -244,12 +248,14 @@
                                      ? GameState.Idle
                                      : GameState.Play;
                 }
+
                 break;
 
                 default:
                 {
                     _gameState = GameState.Idle;
                 }
+
                 break;
             }
 
@@ -289,6 +295,7 @@
                                                         (_renderTarget.Height / 2) - 40),
                                             Color.White);
                 }
+
                 break;
                 case GameState.ChooseInput:
                 {
@@ -336,6 +343,7 @@
                         }
                     }
                 }
+
                 break;
                 case GameState.Start:
                     break;
@@ -350,6 +358,7 @@
                     _spriteBatch.DrawString(_font, _scores[0].ToString(), new Vector2(128, 0), Color.White);
                     _spriteBatch.DrawString(_font, _scores[1].ToString(), new Vector2(_renderTarget.Width - 178, 0), Color.White);
                 }
+
                 break;
             }
 
