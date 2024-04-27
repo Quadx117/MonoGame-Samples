@@ -18,7 +18,6 @@ using Microsoft.Xna.Framework.Input;
 public class BetGameComponent : DrawableGameComponent
 {
     readonly List<Player> players;
-    readonly string theme;
     readonly int[] assetNames = { 5, 25, 100, 500 };
     readonly Dictionary<int, Texture2D> chipsAssets;
     Texture2D blankChip;
@@ -31,7 +30,6 @@ public class BetGameComponent : DrawableGameComponent
     Button bet;
     Button clear;
 
-    Vector2 ChipOffset { get; set; }
     static readonly float insuranceYPosition = 120 * BlackjackGame.HeightScale;
     static Vector2 secondHandOffset = new(25 * BlackjackGame.WidthScale,
                                           30 * BlackjackGame.HeightScale);
@@ -51,12 +49,10 @@ public class BetGameComponent : DrawableGameComponent
     /// <param name="theme">The name of the selcted card theme.</param>
     /// <param name="cardGame">An instance of <see cref="CardsGame"/> which
     /// is the current game.</param>
-    public BetGameComponent(List<Player> players, InputState input,
-        string theme, CardsGame cardGame)
+    public BetGameComponent(List<Player> players, InputState input, string theme, CardsGame cardGame)
         : base(cardGame.Game)
     {
         this.players = players;
-        this.theme = theme;
         this.cardGame = cardGame;
         this.input = input;
         chipsAssets = new Dictionary<int, Texture2D>();

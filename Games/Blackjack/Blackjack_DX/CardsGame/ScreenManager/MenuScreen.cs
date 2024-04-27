@@ -28,7 +28,6 @@ abstract class MenuScreen : GameScreen
 #if WINDOWS
     bool isMouseDown = false;
 #endif
-    Rectangle bounds;
 
     /// <summary>
     /// Gets the list of menu entries, so derived classes can add
@@ -221,8 +220,6 @@ abstract class MenuScreen : GameScreen
 
     public override void LoadContent()
     {
-        bounds = ScreenManager.SafeArea;
-
         base.LoadContent();
     }
 

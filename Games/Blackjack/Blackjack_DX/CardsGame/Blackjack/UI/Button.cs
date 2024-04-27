@@ -30,7 +30,11 @@ public class Button : AnimatedGameComponent
 
     public event EventHandler Click;
 
+    // TODO(PERE): Investigate why InputState was passed in the constructor and
+    // stored in this class.
+#pragma warning disable IDE0052 // Remove unread private members
     readonly InputState input;
+#pragma warning restore IDE0052 // Remove unread private members
 
     InputHelper inputHelper;
 

@@ -15,7 +15,6 @@ using Microsoft.Xna.Framework.Graphics;
 class BackgroundScreen : GameScreen
 {
     Texture2D background;
-    Rectangle safeArea;
 
     /// <summary>
     /// Initializes a new instance of the screen.
@@ -32,7 +31,6 @@ class BackgroundScreen : GameScreen
     public override void LoadContent()
     {
         background = ScreenManager.Game.Content.Load<Texture2D>(@"Images\titlescreen");
-        safeArea = ScreenManager.Game.GraphicsDevice.Viewport.TitleSafeArea;
         base.LoadContent();
     }
 
