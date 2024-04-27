@@ -404,7 +404,7 @@ public class ScreenManager : DrawableGameComponent
     /// <summary>
     /// Deletes the saved state files from isolated storage.
     /// </summary>
-    private void DeleteState(IsolatedStorageFile storage)
+    private static void DeleteState(IsolatedStorageFile storage)
     {
         // get all of the files in the directory and delete them
         string[] files = storage.GetFileNames("ScreenManager\\*");

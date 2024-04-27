@@ -623,8 +623,9 @@ public class BetGameComponent : DrawableGameComponent
     /// <param name="player">The player for whom we calculate the factor.</param>
     /// <param name="currentHand">The hand to calculate the factor for.</param>
     /// <returns></returns>
-    private float CalculateFactorForHand(BlackjackPlayer dealerPlayer,
-        BlackjackPlayer player, HandTypes currentHand)
+    private static float CalculateFactorForHand(BlackjackPlayer dealerPlayer,
+                                                BlackjackPlayer player,
+                                                HandTypes currentHand)
     {
         float factor;
 
