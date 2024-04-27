@@ -110,7 +110,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
     /// <returns></returns>
     public virtual Vector2 GetCardRelativePosition(int cardLocationInHand)
     {
-        return default(Vector2);
+        return default;
     }
 
     /// <summary>
