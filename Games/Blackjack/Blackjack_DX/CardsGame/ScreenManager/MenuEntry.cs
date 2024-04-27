@@ -139,12 +139,11 @@ class MenuEntry
 
     private Vector2 GetTextPosition(MenuScreen screen)
     {
-        Vector2 textPosition = Vector2.Zero;
-        textPosition = Scale == 1f
-                           ? new Vector2(destination.X + (destination.Width / 2) - (GetWidth(screen) / 2),
-                                         destination.Y)
-                           : new Vector2(destination.X + ((destination.Width / 2) - (GetWidth(screen) / 2 * Scale)),
-                                         destination.Y + ((GetHeight(screen) - (GetHeight(screen) * Scale)) / 2));
+        Vector2 textPosition = Scale == 1f
+                                   ? new Vector2(destination.X + (destination.Width / 2) - (GetWidth(screen) / 2),
+                                                 destination.Y)
+                                   : new Vector2(destination.X + ((destination.Width / 2) - (GetWidth(screen) / 2 * Scale)),
+                                                 destination.Y + ((GetHeight(screen) - (GetHeight(screen) * Scale)) / 2));
 
         return textPosition;
     }

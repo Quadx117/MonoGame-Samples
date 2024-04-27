@@ -368,7 +368,7 @@ class BlackjackCardGame : CardsGame
     /// </summary>
     private void ShowPlayerValues()
     {
-        Color color = Color.Black;
+        Color color;
         Player currentPlayer = GetCurrentPlayer();
 
         for (int playerIndex = 0; playerIndex < players.Count; playerIndex++)

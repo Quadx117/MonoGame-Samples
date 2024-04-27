@@ -580,7 +580,7 @@ public class BetGameComponent : DrawableGameComponent
     /// placed.</returns>
     private Vector2 GetChipOffset(bool secondHand)
     {
-        Vector2 offset = Vector2.Zero;
+        Vector2 offset;
 
         BlackJackTable table = (BlackJackTable)cardGame.GameTable;
         offset = table.RingOffset +
