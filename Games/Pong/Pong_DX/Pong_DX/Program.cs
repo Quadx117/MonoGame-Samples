@@ -1,14 +1,13 @@
-﻿namespace Pong_DX
-{
-    using System;
+﻿namespace Pong_DX;
 
-    public static class Program
+using System;
+
+public static class Program
+{
+    [STAThread]
+    static void Main()
     {
-        [STAThread]
-        static void Main()
-        {
-            using var game = new PongGame();
-            game.Run();
-        }
+        using var game = new PongGame();
+        game.Run();
     }
 }
