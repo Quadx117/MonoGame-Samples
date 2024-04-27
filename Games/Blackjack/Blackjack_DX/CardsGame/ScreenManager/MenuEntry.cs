@@ -19,10 +19,6 @@ using Microsoft.Xna.Framework.Graphics;
 /// </summary>
 class MenuEntry
 {
-    /// <summary>
-    /// The text rendered for this entry.
-    /// </summary>
-    string text;
 
     /// <summary>
     /// Tracks a fading selection effect on the entry.
@@ -37,11 +33,7 @@ class MenuEntry
     /// <summary>
     /// Gets or sets the text of this menu entry.
     /// </summary>
-    public string Text
-    {
-        get { return text; }
-        set { text = value; }
-    }
+    public string Text { get; set; }
 
     /// <summary>
     /// Gets or sets the position at which to draw this menu entry.
@@ -74,7 +66,7 @@ class MenuEntry
     /// </summary>
     public MenuEntry(string text)
     {
-        this.text = text;
+        this.Text = text;
 
         Scale = 1f;
         Rotation = 0f;
@@ -126,7 +118,7 @@ class MenuEntry
 
         spriteBatch.Draw(screenManager.ButtonBackground, destination, tintColor);
 
-        spriteBatch.DrawString(screenManager.Font, text, GetTextPosition(screen),
+        spriteBatch.DrawString(screenManager.Font, Text, GetTextPosition(screen),
                                textColor, Rotation, Vector2.Zero, Scale, SpriteEffects.None, 0);
     }
 

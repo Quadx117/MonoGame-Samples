@@ -28,54 +28,30 @@ public class ScreenManager : DrawableGameComponent
     List<GameScreen> screensToUpdate = new List<GameScreen>();
 
     public InputState input = new InputState();
-
-    SpriteBatch spriteBatch;
-    SpriteFont font;
-    Texture2D blankTexture;
-    Texture2D buttonBackground;
-
     bool isInitialized;
-
-    bool traceEnabled;
 
     /// <summary>
     /// A default SpriteBatch shared by all the screens. This saves
     /// each screen having to bother creating their own local instance.
     /// </summary>
-    public SpriteBatch SpriteBatch
-    {
-        get { return spriteBatch; }
-    }
+    public SpriteBatch SpriteBatch { get; private set; }
 
-    public Texture2D ButtonBackground
-    {
-        get { return buttonBackground; }
-    }
+    public Texture2D ButtonBackground { get; private set; }
 
-    public Texture2D BlankTexture
-    {
-        get { return blankTexture; }
-    }
+    public Texture2D BlankTexture { get; private set; }
 
     /// <summary>
     /// A default font shared by all the screens. This saves
     /// each screen having to bother loading their own local copy.
     /// </summary>
-    public SpriteFont Font
-    {
-        get { return font; }
-    }
+    public SpriteFont Font { get; private set; }
 
     /// <summary>
     /// If true, the manager prints out a list of all the screens
     /// each time it is updated. This can be useful for making sure
     /// everything is being added and removed at the right times.
     /// </summary>
-    public bool TraceEnabled
-    {
-        get { return traceEnabled; }
-        set { traceEnabled = value; }
-    }
+    public bool TraceEnabled { get; set; }
 
     /// <summary>
     /// Returns the portion of the screen where drawing is safely allowed.
@@ -119,10 +95,10 @@ public class ScreenManager : DrawableGameComponent
         // Load content belonging to the screen manager.
         ContentManager content = Game.Content;
 
-        spriteBatch = new SpriteBatch(GraphicsDevice);
-        font = content.Load<SpriteFont>("Fonts/MenuFont");
-        blankTexture = content.Load<Texture2D>("Images/blank");
-        buttonBackground = content.Load<Texture2D>("Images/ButtonRegular");
+        SpriteBatch = new SpriteBatch(GraphicsDevice);
+        Font = content.Load<SpriteFont>("Fonts/MenuFont");
+        BlankTexture = content.Load<Texture2D>("Images/blank");
+        ButtonBackground = content.Load<Texture2D>("Images/ButtonRegular");
 
         // Tell each of the screens to load their content.
         foreach (GameScreen screen in screens)
@@ -196,7 +172,7 @@ public class ScreenManager : DrawableGameComponent
         }
 
         // Print debug trace?
-        if (traceEnabled)
+        if (TraceEnabled)
         {
             TraceScreens();
         }
@@ -301,13 +277,13 @@ public class ScreenManager : DrawableGameComponent
     {
         Viewport viewport = GraphicsDevice.Viewport;
 
-        spriteBatch.Begin();
+        SpriteBatch.Begin();
 
-        spriteBatch.Draw(blankTexture,
+        SpriteBatch.Draw(BlankTexture,
                          new Rectangle(0, 0, viewport.Width, viewport.Height),
                          Color.Black * alpha);
 
-        spriteBatch.End();
+        SpriteBatch.End();
     }
 
     /// <summary>

@@ -21,16 +21,11 @@ class PlayerIndexEventArgs : EventArgs
     /// </summary>
     public PlayerIndexEventArgs(PlayerIndex playerIndex)
     {
-        this.playerIndex = playerIndex;
+        this.PlayerIndex = playerIndex;
     }
 
     /// <summary>
     /// Gets the index of the player who triggered this event.
     /// </summary>
-    public PlayerIndex PlayerIndex
-    {
-        get { return playerIndex; }
-    }
-
-    PlayerIndex playerIndex;
+    public PlayerIndex PlayerIndex { get; }
 }

@@ -20,14 +20,7 @@ public class AudioManager : GameComponent
     /// <summary>
     /// The singleton for this type.
     /// </summary>
-    static AudioManager audioManager = null;
-    public static AudioManager Instance
-    {
-        get
-        {
-            return audioManager;
-        }
-    }
+    public static AudioManager Instance { get; private set; } = null;
 
     static readonly string soundAssetLocation = "Sounds/";
 
@@ -44,11 +37,11 @@ public class AudioManager : GameComponent
     /// <param name="game">The game that this component will be attached to.</param>
     public static void Initialize(Game game)
     {
-        audioManager = new AudioManager(game);
-        audioManager.soundBank = new Dictionary<string, SoundEffectInstance>();
-        audioManager.musicBank = new Dictionary<string, Song>();
+        Instance = new AudioManager(game);
+        Instance.soundBank = new Dictionary<string, SoundEffectInstance>();
+        Instance.musicBank = new Dictionary<string, Song>();
 
-        game.Components.Add(audioManager);
+        game.Components.Add(Instance);
     }
 
     /// <summary>
@@ -60,12 +53,12 @@ public class AudioManager : GameComponent
     /// <remarks>Loading a sound with an alias that is already used will have no effect.</remarks>
     public static void LoadSound(string contentName, string alias)
     {
-        SoundEffect soundEffect = audioManager.Game.Content.Load<SoundEffect>(soundAssetLocation + contentName);
+        SoundEffect soundEffect = Instance.Game.Content.Load<SoundEffect>(soundAssetLocation + contentName);
         SoundEffectInstance soundEffectInstance = soundEffect.CreateInstance();
 
-        if (!audioManager.soundBank.ContainsKey(alias))
+        if (!Instance.soundBank.ContainsKey(alias))
         {
-            audioManager.soundBank.Add(alias, soundEffectInstance);
+            Instance.soundBank.Add(alias, soundEffectInstance);
         }
     }
 
@@ -78,11 +71,11 @@ public class AudioManager : GameComponent
     /// /// <remarks>Loading a song with an alias that is already used will have no effect.</remarks>
     public static void LoadSong(string contentName, string alias)
     {
-        Song song = audioManager.Game.Content.Load<Song>(soundAssetLocation + contentName);
+        Song song = Instance.Game.Content.Load<Song>(soundAssetLocation + contentName);
 
-        if (!audioManager.musicBank.ContainsKey(alias))
+        if (!Instance.musicBank.ContainsKey(alias))
         {
-            audioManager.musicBank.Add(alias, song);
+            Instance.musicBank.Add(alias, song);
         }
     }
 
@@ -113,9 +106,9 @@ public class AudioManager : GameComponent
     {
         get
         {
-            if (audioManager.soundBank.ContainsKey(soundName))
+            if (Instance.soundBank.ContainsKey(soundName))
             {
-                return audioManager.soundBank[soundName];
+                return Instance.soundBank[soundName];
             }
             else
             {
@@ -131,9 +124,9 @@ public class AudioManager : GameComponent
     public static void PlaySound(string soundName)
     {
         // If the sound exists, start it
-        if (audioManager.soundBank.ContainsKey(soundName))
+        if (Instance.soundBank.ContainsKey(soundName))
         {
-            audioManager.soundBank[soundName].Play();
+            Instance.soundBank[soundName].Play();
         }
     }
 
@@ -145,14 +138,14 @@ public class AudioManager : GameComponent
     public static void PlaySound(string soundName, bool isLooped)
     {
         // If the sound exists, start it
-        if (audioManager.soundBank.ContainsKey(soundName))
+        if (Instance.soundBank.ContainsKey(soundName))
         {
-            if (audioManager.soundBank[soundName].IsLooped != isLooped)
+            if (Instance.soundBank[soundName].IsLooped != isLooped)
             {
-                audioManager.soundBank[soundName].IsLooped = isLooped;
+                Instance.soundBank[soundName].IsLooped = isLooped;
             }
 
-            audioManager.soundBank[soundName].Play();
+            Instance.soundBank[soundName].Play();
         }
     }
 
@@ -165,15 +158,15 @@ public class AudioManager : GameComponent
     public static void PlaySound(string soundName, bool isLooped, float volume)
     {
         // If the sound exists, start it
-        if (audioManager.soundBank.ContainsKey(soundName))
+        if (Instance.soundBank.ContainsKey(soundName))
         {
-            if (audioManager.soundBank[soundName].IsLooped != isLooped)
+            if (Instance.soundBank[soundName].IsLooped != isLooped)
             {
-                audioManager.soundBank[soundName].IsLooped = isLooped;
+                Instance.soundBank[soundName].IsLooped = isLooped;
             }
 
-            audioManager.soundBank[soundName].Volume = volume;
-            audioManager.soundBank[soundName].Play();
+            Instance.soundBank[soundName].Volume = volume;
+            Instance.soundBank[soundName].Play();
         }
     }
 
@@ -185,9 +178,9 @@ public class AudioManager : GameComponent
     public static void StopSound(string soundName)
     {
         // If the sound exists, stop it
-        if (audioManager.soundBank.ContainsKey(soundName))
+        if (Instance.soundBank.ContainsKey(soundName))
         {
-            audioManager.soundBank[soundName].Stop();
+            Instance.soundBank[soundName].Stop();
         }
     }
 
@@ -196,7 +189,7 @@ public class AudioManager : GameComponent
     /// </summary>
     public static void StopSounds()
     {
-        foreach (SoundEffectInstance sound in audioManager.soundBank.Values)
+        foreach (SoundEffectInstance sound in Instance.soundBank.Values)
         {
             if (sound.State != SoundState.Stopped)
             {
@@ -214,7 +207,7 @@ public class AudioManager : GameComponent
     {
         SoundState state = resumeSounds ? SoundState.Paused : SoundState.Playing;
 
-        foreach (SoundEffectInstance sound in audioManager.soundBank.Values)
+        foreach (SoundEffectInstance sound in Instance.soundBank.Values)
         {
             if (sound.State == state)
             {
@@ -237,7 +230,7 @@ public class AudioManager : GameComponent
     public static void PlayMusic(string musicSoundName)
     {
         // If the music sound exists
-        if (audioManager.musicBank.ContainsKey(musicSoundName))
+        if (Instance.musicBank.ContainsKey(musicSoundName))
         {
             // Stop the old music sound
             if (MediaPlayer.State != MediaState.Stopped)
@@ -247,7 +240,7 @@ public class AudioManager : GameComponent
 
             MediaPlayer.IsRepeating = true;
 
-            MediaPlayer.Play(audioManager.musicBank[musicSoundName]);
+            MediaPlayer.Play(Instance.musicBank[musicSoundName]);
         }
     }
 
