@@ -117,9 +117,8 @@ public class AnimatedGameComponent : DrawableGameComponent
                 if (Text != null)
                 {
                     Vector2 size = CardGame.Font.MeasureString(Text);
-                    Vector2 textPosition = new(CurrentDestination.Value.X +
-                        CurrentDestination.Value.Width / 2 - size.X / 2,
-                        CurrentDestination.Value.Y + CurrentDestination.Value.Height / 2 - size.Y / 2);
+                    Vector2 textPosition = new(CurrentDestination.Value.X + (CurrentDestination.Value.Width / 2) - (size.X / 2),
+                                               CurrentDestination.Value.Y + (CurrentDestination.Value.Height / 2) - (size.Y / 2));
 
                     spriteBatch.DrawString(CardGame.Font, Text, textPosition, TextColor);
                 }
@@ -134,9 +133,8 @@ public class AnimatedGameComponent : DrawableGameComponent
                 if (Text != null)
                 {
                     Vector2 size = CardGame.Font.MeasureString(Text);
-                    Vector2 textPosition = new(CurrentPosition.X +
-                        CurrentFrame.Bounds.Width / 2 - size.X / 2,
-                        CurrentPosition.Y + CurrentFrame.Bounds.Height / 2 - size.Y / 2);
+                    Vector2 textPosition = new(CurrentPosition.X + (CurrentFrame.Bounds.Width / 2) - (size.X / 2),
+                                               CurrentPosition.Y + (CurrentFrame.Bounds.Height / 2) - (size.Y / 2));
 
                     spriteBatch.DrawString(CardGame.Font, Text, textPosition, TextColor);
                 }

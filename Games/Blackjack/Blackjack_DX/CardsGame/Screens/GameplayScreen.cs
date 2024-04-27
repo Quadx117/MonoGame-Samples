@@ -62,7 +62,7 @@ class GameplayScreen : GameScreen
 #endif
 
         blackJackGame = new BlackjackCardGame(ScreenManager.GraphicsDevice.Viewport.Bounds,
-            new Vector2(safeArea.Left + safeArea.Width / 2 - 50, safeArea.Top + 20),
+            new Vector2(safeArea.Left + (safeArea.Width / 2) - 50, safeArea.Top + 20),
             GetPlayerCardPosition, ScreenManager, theme);
 
         InitializeGame();
@@ -177,7 +177,7 @@ class GameplayScreen : GameScreen
             case 1:
             case 2:
                 return new Vector2(ScreenManager.SafeArea.Left,
-                    ScreenManager.SafeArea.Top + 200 * (BlackjackGame.HeightScale - 1)) +
+                    ScreenManager.SafeArea.Top + (200 * (BlackjackGame.HeightScale - 1))) +
                     playerCardOffset[player];
             default:
                 throw new ArgumentException(

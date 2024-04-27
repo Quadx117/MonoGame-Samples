@@ -108,7 +108,7 @@ class BlackjackCardGame : CardsGame
                 screenManager.input, this)
             {
                 Text = buttonsText[buttonIndex],
-                Bounds = new Rectangle(screenManager.SafeArea.Left + 10 + buttonIndex * 110,
+                Bounds = new Rectangle(screenManager.SafeArea.Left + 10 + (buttonIndex * 110),
                     screenManager.SafeArea.Bottom - 60,
                 100, 50),
                 Font = Font,

@@ -239,8 +239,8 @@ abstract class MenuScreen : GameScreen
 
         // start at Y = 475; each X value is generated per entry
         Vector2 position = new(0f,
-            ScreenManager.Game.Window.ClientBounds.Height / 2 -
-            (menuEntries[0].GetHeight(this) + menuEntryPadding * 2 * menuEntries.Count));
+            (ScreenManager.Game.Window.ClientBounds.Height / 2) -
+            (menuEntries[0].GetHeight(this) + (menuEntryPadding * 2 * menuEntries.Count)));
 
         // update each menu entry's location in turn
         for (int i = 0; i < menuEntries.Count; i++)
@@ -248,7 +248,7 @@ abstract class MenuScreen : GameScreen
             MenuEntry menuEntry = menuEntries[i];
 
             // each entry is to be centered horizontally
-            position.X = ScreenManager.GraphicsDevice.Viewport.Width / 2 - menuEntry.GetWidth(this) / 2;
+            position.X = (ScreenManager.GraphicsDevice.Viewport.Width / 2) - (menuEntry.GetWidth(this) / 2);
 
             if (ScreenState == ScreenState.TransitionOn)
             {
@@ -350,8 +350,8 @@ abstract class MenuScreen : GameScreen
         {
             menuEntries[i].Destination =
                 new Rectangle(
-                    bounds.Left + (xStep - textureSize.Width) / 2 + (i + 1) * xStep,
-                    bounds.Bottom - textureSize.Height * 2, maxWidth, 50);
+                    bounds.Left + ((xStep - textureSize.Width) / 2) + ((i + 1) * xStep),
+                    bounds.Bottom - (textureSize.Height * 2), maxWidth, 50);
         }
     }
 }

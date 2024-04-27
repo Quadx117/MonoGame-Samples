@@ -121,8 +121,8 @@ class InstructionScreen : GameplayScreen
             Rectangle safeArea = ScreenManager.SafeArea;
             string text = "Loading...";
             Vector2 measure = font.MeasureString(text);
-            Vector2 textPosition = new(safeArea.Center.X - measure.X / 2,
-                                       safeArea.Center.Y - measure.Y / 2);
+            Vector2 textPosition = new(safeArea.Center.X - (measure.X / 2),
+                                       safeArea.Center.Y - (measure.Y / 2));
             spriteBatch.DrawString(font, text, textPosition, Color.Black);
         }
 

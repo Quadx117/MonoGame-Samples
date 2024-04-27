@@ -52,7 +52,7 @@ public class ScaleGameComponentAnimation : AnimatedGameComponentAnimation
                 Rectangle bounds = texture.Bounds;
                 bounds.X = (int)Component.CurrentPosition.X;
                 bounds.Y = (int)Component.CurrentPosition.Y;
-                float currentFactor = beginFactor + factorDelta * percent - 1;
+                float currentFactor = beginFactor + (factorDelta * percent) - 1;
                 bounds.Inflate((int)(bounds.Width * currentFactor),
                     (int)(bounds.Height * currentFactor));
                 Component.CurrentDestination = bounds;

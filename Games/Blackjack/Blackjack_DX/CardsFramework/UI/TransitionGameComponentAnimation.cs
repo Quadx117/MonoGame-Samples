@@ -46,7 +46,7 @@ public class TransitionGameComponentAnimation : AnimatedGameComponentAnimation
 
             // Move the component towards the destination as the animation
             // progresses
-            Component.CurrentPosition = sourcePosition + positionDelta * percent;
+            Component.CurrentPosition = sourcePosition + (positionDelta * percent);
 
             if (IsDone())
             {

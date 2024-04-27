@@ -474,7 +474,7 @@ public class BetGameComponent : DrawableGameComponent
                 float bet2 = initialBet * (player.SecondDouble ? 2f : 1f);
 
                 // Update the balance in light of the bets and results
-                player.Balance += bet1 * factor + bet2 * factor2;
+                player.Balance += (bet1 * factor) + (bet2 * factor2);
 
                 if (player.IsInsurance && dealerPlayer.BlackJack)
                 {
@@ -591,8 +591,8 @@ public class BetGameComponent : DrawableGameComponent
 
         BlackJackTable table = (BlackJackTable)cardGame.GameTable;
         offset = table.RingOffset +
-            new Vector2(table.RingTexture.Bounds.Width - blankChip.Bounds.Width,
-                table.RingTexture.Bounds.Height - blankChip.Bounds.Height) / 2f;
+            (new Vector2(table.RingTexture.Bounds.Width - blankChip.Bounds.Width,
+                         table.RingTexture.Bounds.Height - blankChip.Bounds.Height) / 2f);
 
         if (secondHand == true)
         {
