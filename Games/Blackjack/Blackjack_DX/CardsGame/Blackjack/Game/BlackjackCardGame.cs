@@ -198,9 +198,9 @@ class BlackjackCardGame : CardsGame
                     BlackjackPlayer player =
                         (BlackjackPlayer)GetCurrentPlayer();
                     // If the current player is an AI player, make it play
-                    if (player is BlackjackAIPlayer)
+                    if (player is BlackjackAIPlayer aiPlayer)
                     {
-                        ((BlackjackAIPlayer)player).AIPlay();
+                        aiPlayer.AIPlay();
                     }
 
                     CheckRules();
@@ -1637,7 +1637,7 @@ class BlackjackCardGame : CardsGame
         // Remove all unnecessary components
         for (int componentIndex = 0; componentIndex < Game.Components.Count; componentIndex++)
         {
-            if (!(Game.Components[componentIndex] is ScreenManager))
+            if (Game.Components[componentIndex] is not ScreenManager)
             {
                 Game.Components.RemoveAt(componentIndex);
                 componentIndex--;

@@ -75,9 +75,9 @@ public class BetGameComponent : DrawableGameComponent
         inputHelper = null;
         for (int componentIndex = 0; componentIndex < Game.Components.Count; componentIndex++)
         {
-            if (Game.Components[componentIndex] is InputHelper)
+            if (Game.Components[componentIndex] is InputHelper helper)
             {
-                inputHelper = (InputHelper)Game.Components[componentIndex];
+                inputHelper = helper;
                 break;
             }
         }
@@ -163,10 +163,10 @@ public class BetGameComponent : DrawableGameComponent
                 BlackjackPlayer player = (BlackjackPlayer)players[playerIndex];
 
                 // If the player is an AI player, have it bet
-                if (player is BlackjackAIPlayer)
+                if (player is BlackjackAIPlayer aiPlayer)
                 {
                     ShowAndEnableButtons(false);
-                    int bet = ((BlackjackAIPlayer)player).AIBet();
+                    int bet = aiPlayer.AIBet();
                     if (bet == 0)
                     {
                         Bet_Click(this, EventArgs.Empty);

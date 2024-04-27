@@ -53,9 +53,9 @@ class PauseScreen : MenuScreen
 
         for (int screenIndex = 0; screenIndex < screens.Length; screenIndex++)
         {
-            if (screens[screenIndex] is GameplayScreen)
+            if (screens[screenIndex] is GameplayScreen screen)
             {
-                gameplayScreen = (GameplayScreen)screens[screenIndex];
+                gameplayScreen = screen;
             }
             else
             {
@@ -79,7 +79,7 @@ class PauseScreen : MenuScreen
     {
         for (int componentIndex = 0; componentIndex < ScreenManager.Game.Components.Count; componentIndex++)
         {
-            if (!(ScreenManager.Game.Components[componentIndex] is ScreenManager))
+            if (ScreenManager.Game.Components[componentIndex] is not GameStateManagement.ScreenManager)
             {
                 if (ScreenManager.Game.Components[componentIndex] is DrawableGameComponent)
                 {
