@@ -191,7 +191,7 @@ public class BetGameComponent : DrawableGameComponent
             // Once all players are done betting, advance the game to the dealing stage
             if (((BlackjackPlayer)players[^1]).IsDoneBetting)
             {
-                BlackjackCardGame blackjackGame = ((BlackjackCardGame)cardGame);
+                BlackjackCardGame blackjackGame = (BlackjackCardGame)cardGame;
 
                 if (!blackjackGame.CheckForRunningAnimations<AnimatedGameComponent>())
                 {
@@ -589,7 +589,7 @@ public class BetGameComponent : DrawableGameComponent
     {
         Vector2 offset = Vector2.Zero;
 
-        BlackJackTable table = ((BlackJackTable)cardGame.GameTable);
+        BlackJackTable table = (BlackJackTable)cardGame.GameTable;
         offset = table.RingOffset +
             new Vector2(table.RingTexture.Bounds.Width - blankChip.Bounds.Width,
                 table.RingTexture.Bounds.Height - blankChip.Bounds.Height) / 2f;

@@ -47,8 +47,8 @@ public class FramesetGameComponentAnimation : AnimatedGameComponentAnimation
         if (IsStarted())
         {
             // Calculate the completion percent of the animation
-            percent += (((gameTime.ElapsedGameTime.TotalMilliseconds /
-                (Duration.TotalMilliseconds / AnimationCycles)) * 100));
+            percent += gameTime.ElapsedGameTime.TotalMilliseconds /
+                       (Duration.TotalMilliseconds / AnimationCycles) * 100;
 
             if (percent >= 100)
             {

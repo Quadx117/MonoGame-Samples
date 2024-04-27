@@ -587,7 +587,7 @@ class BlackjackCardGame : CardsGame
     public override void StartPlaying()
     {
         // Check that there are enough players to start playing
-        if ((MinimumPlayers <= players.Count && players.Count <= MaximumPlayers))
+        if (MinimumPlayers <= players.Count && players.Count <= MaximumPlayers)
         {
             // Set up and register to gameplay events
 
@@ -1117,9 +1117,9 @@ class BlackjackCardGame : CardsGame
     {
         object[] arr = (object[])obj;
         State = BlackjackGameState.GameOver;
-        AnimatedGameComponent youLooseComponent = ((AnimatedGameComponent)arr[0]);
+        AnimatedGameComponent youLooseComponent = (AnimatedGameComponent)arr[0];
         youLooseComponent.Visible = true;
-        Button mainMenuButton = ((Button)arr[1]);
+        Button mainMenuButton = (Button)arr[1];
         mainMenuButton.Visible = true;
 
         // Remove all unnecessary game components
@@ -1158,7 +1158,7 @@ class BlackjackCardGame : CardsGame
                 if (Game.Components[componentIndex] is AnimatedCardsGameComponent)
                 {
                     AnimatedCardsGameComponent animatedCard =
-                        (Game.Components[componentIndex] as AnimatedCardsGameComponent);
+                        Game.Components[componentIndex] as AnimatedCardsGameComponent;
                     animatedCard.AddAnimation(
                         new TransitionGameComponentAnimation(animatedCard.CurrentPosition,
                                                              new Vector2(animatedCard.CurrentPosition.X,
@@ -1469,7 +1469,7 @@ class BlackjackCardGame : CardsGame
     void BustGameRule(object sender, EventArgs e)
     {
         showInsurance = false;
-        BlackjackGameEventArgs args = (e as BlackjackGameEventArgs);
+        BlackjackGameEventArgs args = e as BlackjackGameEventArgs;
         BlackjackPlayer player = (BlackjackPlayer)args.Player;
 
         CueOverPlayerHand(player, "bust", args.Hand, null);
@@ -1508,7 +1508,7 @@ class BlackjackCardGame : CardsGame
     void BlackJackGameRule(object sender, EventArgs e)
     {
         showInsurance = false;
-        BlackjackGameEventArgs args = (e as BlackjackGameEventArgs);
+        BlackjackGameEventArgs args = e as BlackjackGameEventArgs;
         BlackjackPlayer player = (BlackjackPlayer)args.Player;
 
         CueOverPlayerHand(player, "blackjack", args.Hand, null);

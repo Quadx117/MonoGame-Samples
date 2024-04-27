@@ -95,16 +95,16 @@ public class InputState
 
             int i = (int)playerIndex;
 
-            return (CurrentKeyboardStates[i].IsKeyDown(key) &&
-                    LastKeyboardStates[i].IsKeyUp(key));
+            return CurrentKeyboardStates[i].IsKeyDown(key) &&
+                    LastKeyboardStates[i].IsKeyUp(key);
         }
         else
         {
             // Accept input from any player.
-            return (IsNewKeyPress(key, PlayerIndex.One, out playerIndex) ||
+            return IsNewKeyPress(key, PlayerIndex.One, out playerIndex) ||
                     IsNewKeyPress(key, PlayerIndex.Two, out playerIndex) ||
                     IsNewKeyPress(key, PlayerIndex.Three, out playerIndex) ||
-                    IsNewKeyPress(key, PlayerIndex.Four, out playerIndex));
+                    IsNewKeyPress(key, PlayerIndex.Four, out playerIndex);
         }
     }
 
@@ -124,16 +124,16 @@ public class InputState
 
             int i = (int)playerIndex;
 
-            return (CurrentGamePadStates[i].IsButtonDown(button) &&
-                    LastGamePadStates[i].IsButtonUp(button));
+            return CurrentGamePadStates[i].IsButtonDown(button) &&
+                    LastGamePadStates[i].IsButtonUp(button);
         }
         else
         {
             // Accept input from any player.
-            return (IsNewButtonPress(button, PlayerIndex.One, out playerIndex) ||
+            return IsNewButtonPress(button, PlayerIndex.One, out playerIndex) ||
                     IsNewButtonPress(button, PlayerIndex.Two, out playerIndex) ||
                     IsNewButtonPress(button, PlayerIndex.Three, out playerIndex) ||
-                    IsNewButtonPress(button, PlayerIndex.Four, out playerIndex));
+                    IsNewButtonPress(button, PlayerIndex.Four, out playerIndex);
         }
     }
 

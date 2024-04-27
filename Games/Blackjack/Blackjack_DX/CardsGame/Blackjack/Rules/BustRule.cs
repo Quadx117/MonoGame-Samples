@@ -53,9 +53,9 @@ public class BustRule : GameRule
 
             if (!players[playerIndex].SecondBust)
             {
-                if ((players[playerIndex].IsSplit &&
+                if (players[playerIndex].IsSplit &&
                     !players[playerIndex].SecondValueConsiderAce &&
-                     players[playerIndex].SecondValue > 21))
+                     players[playerIndex].SecondValue > 21)
                 {
                     FireRuleMatch(new BlackjackGameEventArgs()
                     {

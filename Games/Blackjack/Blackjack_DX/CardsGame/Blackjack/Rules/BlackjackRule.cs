@@ -59,7 +59,7 @@ public class BlackJackRule : GameRule
             {
                 // Check to see if the hand is eligible for a Black Jack
                 // A Black Jack is only eligible with 2 cards in a hand                   
-                if ((players[playerIndex].IsSplit) && ((players[playerIndex].SecondValue == 21) ||
+                if (players[playerIndex].IsSplit && ((players[playerIndex].SecondValue == 21) ||
                     (players[playerIndex].SecondValueConsiderAce &&
                      players[playerIndex].SecondValue + 10 == 21)) &&
                      players[playerIndex].SecondHand.Count == 2)

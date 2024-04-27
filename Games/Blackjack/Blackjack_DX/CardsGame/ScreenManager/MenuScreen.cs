@@ -240,7 +240,7 @@ abstract class MenuScreen : GameScreen
         // start at Y = 475; each X value is generated per entry
         Vector2 position = new(0f,
             ScreenManager.Game.Window.ClientBounds.Height / 2 -
-            (menuEntries[0].GetHeight(this) + (menuEntryPadding * 2) * menuEntries.Count));
+            (menuEntries[0].GetHeight(this) + menuEntryPadding * 2 * menuEntries.Count));
 
         // update each menu entry's location in turn
         for (int i = 0; i < menuEntries.Count; i++)
