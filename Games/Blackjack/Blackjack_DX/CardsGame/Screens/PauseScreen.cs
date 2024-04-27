@@ -64,7 +64,9 @@ class PauseScreen : MenuScreen
         }
 
         foreach (GameScreen screen in res)
+        {
             screen.ExitScreen();
+        }
 
         gameplayScreen.ReturnFromPause();
     }
@@ -92,7 +94,9 @@ class PauseScreen : MenuScreen
         }
 
         foreach (GameScreen screen in ScreenManager.GetScreens())
+        {
             screen.ExitScreen();
+        }
 
         ScreenManager.AddScreen(new BackgroundScreen(), null);
         ScreenManager.AddScreen(new MainMenuScreen(), null);

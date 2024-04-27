@@ -142,7 +142,9 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
     {
         int location = GetCardLocationInHand(card);
         if (location == -1)
+        {
             return null;
+        }
 
         return heldAnimatedCards[location];
     }

@@ -89,7 +89,9 @@ class InstructionScreen : GameplayScreen
         {
             // Move on to the gameplay screen
             foreach (GameScreen screen in ScreenManager.GetScreens())
+            {
                 screen.ExitScreen();
+            }
 
             gameplayScreen.ScreenManager = ScreenManager;
             ScreenManager.AddScreen(gameplayScreen, null);

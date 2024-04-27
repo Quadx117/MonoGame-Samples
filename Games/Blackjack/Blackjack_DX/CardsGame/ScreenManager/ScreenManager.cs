@@ -156,7 +156,9 @@ public class ScreenManager : DrawableGameComponent
         screensToUpdate.Clear();
 
         foreach (GameScreen screen in screens)
+        {
             screensToUpdate.Add(screen);
+        }
 
         bool otherScreenHasFocus = !Game.IsActive;
         bool coveredByOtherScreen = false;
@@ -187,13 +189,17 @@ public class ScreenManager : DrawableGameComponent
                 // If this is an active non-popup, inform any subsequent
                 // screens that they are covered by it.
                 if (!screen.IsPopup)
+                {
                     coveredByOtherScreen = true;
+                }
             }
         }
 
         // Print debug trace?
         if (traceEnabled)
+        {
             TraceScreens();
+        }
     }
 
     /// <summary>
@@ -204,7 +210,9 @@ public class ScreenManager : DrawableGameComponent
         List<string> screenNames = new List<string>();
 
         foreach (GameScreen screen in screens)
+        {
             screenNames.Add(screen.GetType().Name);
+        }
 
         Debug.WriteLine(string.Join(", ", screenNames.ToArray()));
     }
@@ -217,7 +225,9 @@ public class ScreenManager : DrawableGameComponent
         foreach (GameScreen screen in screens)
         {
             if (screen.ScreenState == ScreenState.Hidden)
+            {
                 continue;
+            }
 
             screen.Draw(gameTime);
         }

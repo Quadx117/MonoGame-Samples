@@ -88,14 +88,18 @@ abstract class MenuScreen : GameScreen
             selectedEntry--;
 
             if (selectedEntry < 0)
+            {
                 selectedEntry = menuEntries.Count - 1;
+            }
         }
         else if (input.IsMenuDown(ControllingPlayer))
         {
             selectedEntry++;
 
             if (selectedEntry >= menuEntries.Count)
+            {
                 selectedEntry = 0;
+            }
         }
         else if (input.IsNewKeyPress(Keys.Enter, ControllingPlayer, out player) ||
             input.IsNewKeyPress(Keys.Space, ControllingPlayer, out player))
@@ -141,7 +145,9 @@ abstract class MenuScreen : GameScreen
                 MenuEntry menuEntry = menuEntries[i];
 
                 if (menuEntry.Destination.Contains(clickLocation))
+                {
                     selectedEntry = i;
+                }
             }
         }
 #elif XBOX
@@ -246,9 +252,13 @@ abstract class MenuScreen : GameScreen
             position.X = ScreenManager.GraphicsDevice.Viewport.Width / 2 - menuEntry.GetWidth(this) / 2;
 
             if (ScreenState == ScreenState.TransitionOn)
+            {
                 position.X -= transitionOffset * 256;
+            }
             else
+            {
                 position.X += transitionOffset * 512;
+            }
 
             // set the entry's position
             //menuEntry.Position = position;

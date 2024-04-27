@@ -25,7 +25,9 @@ public static class MathUtility
         Vector2 u = point - origin;
 
         if (u == Vector2.Zero)
+        {
             return point;
+        }
 
         // Angle relative to origin   
         float a = (float)Math.Atan2(u.Y, u.X);

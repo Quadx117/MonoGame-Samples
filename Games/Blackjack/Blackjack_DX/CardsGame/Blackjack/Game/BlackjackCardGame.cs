@@ -217,7 +217,9 @@ class BlackjackCardGame : CardsGame
                     SetButtonAvailability();
                 }
                 else
+                {
                     EnableButtons(false);
+                }
             }
             break;
             case BlackjackGameState.RoundEnd:
@@ -1055,7 +1057,9 @@ class BlackjackCardGame : CardsGame
             if (animationComponent != null)
             {
                 if (animationComponent.IsAnimating)
+                {
                     return true;
+                }
             }
         }
         return false;
@@ -1219,7 +1223,9 @@ class BlackjackCardGame : CardsGame
     {
         BlackjackPlayer player = (BlackjackPlayer)GetCurrentPlayer();
         if (player == null)
+        {
             return;
+        }
 
         // If the player only has one hand, his turn ends. Otherwise, he now plays
         // using his next hand
@@ -1351,7 +1357,9 @@ class BlackjackCardGame : CardsGame
     {
         BlackjackPlayer player = (BlackjackPlayer)GetCurrentPlayer();
         if (player == null)
+        {
             return;
+        }
 
         int playerIndex = players.IndexOf(player);
 
@@ -1546,7 +1554,10 @@ class BlackjackCardGame : CardsGame
     {
         BlackjackPlayer player = (BlackjackPlayer)GetCurrentPlayer();
         if (player == null)
+        {
             return;
+        }
+
         player.IsInsurance = true;
         player.Balance -= player.BetAmount / 2f;
         betGameComponent.AddChips(players.IndexOf(player), player.BetAmount / 2, true, false);
@@ -1634,7 +1645,9 @@ class BlackjackCardGame : CardsGame
         }
 
         foreach (GameScreen screen in screenManager.GetScreens())
+        {
             screen.ExitScreen();
+        }
 
         screenManager.AddScreen(new BackgroundScreen(), null);
         screenManager.AddScreen(new MainMenuScreen(), null);

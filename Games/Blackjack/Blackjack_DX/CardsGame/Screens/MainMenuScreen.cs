@@ -51,7 +51,9 @@ class MainMenuScreen : MenuScreen
     void StartGameMenuEntrySelected(object sender, EventArgs e)
     {
         foreach (GameScreen screen in ScreenManager.GetScreens())
+        {
             screen.ExitScreen();
+        }
 
         ScreenManager.AddScreen(new GameplayScreen(Theme), null);
     }
