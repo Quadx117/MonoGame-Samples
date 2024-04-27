@@ -91,37 +91,23 @@ public abstract class CardsGame
     /// <returns>The card's value.</returns>        
     public virtual int CardValue(TraditionalCard card)
     {
-        switch (card.Value)
+        return card.Value switch
         {
-            case CardsFramework.CardValue.Ace:
-                return 1;
-            case CardsFramework.CardValue.Two:
-                return 2;
-            case CardsFramework.CardValue.Three:
-                return 3;
-            case CardsFramework.CardValue.Four:
-                return 4;
-            case CardsFramework.CardValue.Five:
-                return 5;
-            case CardsFramework.CardValue.Six:
-                return 6;
-            case CardsFramework.CardValue.Seven:
-                return 7;
-            case CardsFramework.CardValue.Eight:
-                return 8;
-            case CardsFramework.CardValue.Nine:
-                return 9;
-            case CardsFramework.CardValue.Ten:
-                return 10;
-            case CardsFramework.CardValue.Jack:
-                return 11;
-            case CardsFramework.CardValue.Queen:
-                return 12;
-            case CardsFramework.CardValue.King:
-                return 13;
-            default:
-                throw new ArgumentException("Ambigous card value");
-        }
+            CardsFramework.CardValue.Ace => 1,
+            CardsFramework.CardValue.Two => 2,
+            CardsFramework.CardValue.Three => 3,
+            CardsFramework.CardValue.Four => 4,
+            CardsFramework.CardValue.Five => 5,
+            CardsFramework.CardValue.Six => 6,
+            CardsFramework.CardValue.Seven => 7,
+            CardsFramework.CardValue.Eight => 8,
+            CardsFramework.CardValue.Nine => 9,
+            CardsFramework.CardValue.Ten => 10,
+            CardsFramework.CardValue.Jack => 11,
+            CardsFramework.CardValue.Queen => 12,
+            CardsFramework.CardValue.King => 13,
+            _ => throw new ArgumentException("Ambigous card value"),
+        };
     }
 
     /// <summary>

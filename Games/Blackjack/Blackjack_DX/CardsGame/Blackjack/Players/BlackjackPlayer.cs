@@ -50,15 +50,12 @@ public class BlackjackPlayer : Player
     {
         get
         {
-            switch (CurrentHandType)
+            return CurrentHandType switch
             {
-                case HandTypes.First:
-                    return Hand;
-                case HandTypes.Second:
-                    return SecondHand;
-                default:
-                    throw new Exception("No hand to return");
-            }
+                HandTypes.First => Hand,
+                HandTypes.Second => SecondHand,
+                _ => throw new Exception("No hand to return"),
+            };
         }
     }
 
