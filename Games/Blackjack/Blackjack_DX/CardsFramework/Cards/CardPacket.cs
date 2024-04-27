@@ -247,8 +247,8 @@ public class CardPacket
     /// <returns>A list of all the cards that were removed.</returns>
     internal List<TraditionalCard> Remove()
     {
-        List<TraditionalCard> cards = this.Cards;
-        this.Cards = new List<TraditionalCard>();
+        List<TraditionalCard> cards = Cards;
+        Cards = new List<TraditionalCard>();
         return cards;
     }
 

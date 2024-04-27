@@ -44,6 +44,6 @@ public class Hand : CardPacket
     /// as the last cards of the hand.</param>
     internal void Add(IEnumerable<TraditionalCard> cards)
     {
-        this.Cards.AddRange(cards);
+        Cards.AddRange(cards);
     }
 }

@@ -21,7 +21,7 @@ class PlayerIndexEventArgs : EventArgs
     /// </summary>
     public PlayerIndexEventArgs(PlayerIndex playerIndex)
     {
-        this.PlayerIndex = playerIndex;
+        PlayerIndex = playerIndex;
     }
 
     /// <summary>

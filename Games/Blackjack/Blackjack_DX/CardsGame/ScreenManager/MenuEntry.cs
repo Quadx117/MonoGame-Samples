@@ -66,7 +66,7 @@ class MenuEntry
     /// </summary>
     public MenuEntry(string text)
     {
-        this.Text = text;
+        Text = text;
 
         Scale = 1f;
         Rotation = 0f;

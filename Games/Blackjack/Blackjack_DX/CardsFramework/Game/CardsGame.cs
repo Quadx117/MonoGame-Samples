@@ -66,7 +66,7 @@ public abstract class CardsGame
         MinimumPlayers = minimumPlayers;
         MaximumPlayers = maximumPlayers;
 
-        this.Theme = theme;
+        Theme = theme;
         cardsAssets = new Dictionary<string, Texture2D>();
         GameTable = gameTable;
         GameTable.DrawOrder = -10000;

@@ -111,7 +111,7 @@ class BlackjackCardGame : CardsGame
                 Bounds = new Rectangle(screenManager.SafeArea.Left + 10 + buttonIndex * 110,
                     screenManager.SafeArea.Bottom - 60,
                 100, 50),
-                Font = this.Font,
+                Font = Font,
                 Visible = false,
                 Enabled = false
             };
@@ -126,7 +126,7 @@ class BlackjackCardGame : CardsGame
 
             Bounds = new Rectangle(screenManager.SafeArea.Left + 10,
                 screenManager.SafeArea.Bottom - 60, 200, 50),
-            Font = this.Font,
+            Font = Font,
             Visible = false,
             Enabled = false
         };
@@ -255,7 +255,7 @@ class BlackjackCardGame : CardsGame
     private void ShowShuffleAnimation()
     {
         // Add shuffling animation
-        AnimatedGameComponent animationComponent = new(this.Game)
+        AnimatedGameComponent animationComponent = new(Game)
         {
             CurrentPosition = GameTable.DealerPosition,
             Visible = false
