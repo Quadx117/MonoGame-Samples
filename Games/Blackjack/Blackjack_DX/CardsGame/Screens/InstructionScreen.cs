@@ -62,12 +62,11 @@ class InstructionScreen : GameplayScreen
             }
 #else
 
-            PlayerIndex result;
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 isExit = true;
             }
-            else if (ScreenManager.input.IsNewButtonPress(Buttons.A, null, out result) ||
+            else if (ScreenManager.input.IsNewButtonPress(Buttons.A, null, out PlayerIndex result) ||
                 ScreenManager.input.IsNewButtonPress(Buttons.Start, null, out result))
             {
                 isExit = true;

@@ -173,9 +173,7 @@ public class InputState
     /// </summary>
     public bool IsMenuUp(PlayerIndex? controllingPlayer)
     {
-        PlayerIndex playerIndex;
-
-        return IsNewKeyPress(Keys.Up, controllingPlayer, out playerIndex) ||
+        return IsNewKeyPress(Keys.Up, controllingPlayer, out PlayerIndex playerIndex) ||
                IsNewKeyPress(Keys.Left, controllingPlayer, out playerIndex) ||
                IsNewButtonPress(Buttons.DPadLeft, controllingPlayer, out playerIndex) ||
                IsNewButtonPress(Buttons.LeftThumbstickLeft, controllingPlayer, out playerIndex);
@@ -188,9 +186,7 @@ public class InputState
     /// </summary>
     public bool IsMenuDown(PlayerIndex? controllingPlayer)
     {
-        PlayerIndex playerIndex;
-
-        return IsNewKeyPress(Keys.Down, controllingPlayer, out playerIndex) ||
+        return IsNewKeyPress(Keys.Down, controllingPlayer, out PlayerIndex playerIndex) ||
                IsNewKeyPress(Keys.Right, controllingPlayer, out playerIndex) ||
                IsNewButtonPress(Buttons.DPadRight, controllingPlayer, out playerIndex) ||
                IsNewButtonPress(Buttons.LeftThumbstickRight, controllingPlayer, out playerIndex);
@@ -203,9 +199,7 @@ public class InputState
     /// </summary>
     public bool IsPauseGame(PlayerIndex? controllingPlayer)
     {
-        PlayerIndex playerIndex;
-
-        return IsNewKeyPress(Keys.Escape, controllingPlayer, out playerIndex) ||
+        return IsNewKeyPress(Keys.Escape, controllingPlayer, out PlayerIndex playerIndex) ||
                IsNewButtonPress(Buttons.Back, controllingPlayer, out playerIndex) ||
                IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex);
     }

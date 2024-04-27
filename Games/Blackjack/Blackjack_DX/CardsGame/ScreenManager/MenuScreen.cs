@@ -76,8 +76,7 @@ abstract class MenuScreen : GameScreen
     public override void HandleInput(InputState input)
     {
         // we cancel the current menu screen if the user presses the back button
-        PlayerIndex player;
-        if (input.IsNewButtonPress(Buttons.Back, ControllingPlayer, out player))
+        if (input.IsNewButtonPress(Buttons.Back, ControllingPlayer, out PlayerIndex player))
         {
             OnCancel(player);
         }
