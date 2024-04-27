@@ -157,7 +157,7 @@ public class BetGameComponent : DrawableGameComponent
         {
             // If betting is possible
             if (((BlackjackCardGame)cardGame).State == BlackjackGameState.Betting &&
-                !((BlackjackPlayer)players[players.Count - 1]).IsDoneBetting)
+                !((BlackjackPlayer)players[^1]).IsDoneBetting)
             {
                 int playerIndex = GetCurrentPlayer();
 
@@ -189,7 +189,7 @@ public class BetGameComponent : DrawableGameComponent
             }
 
             // Once all players are done betting, advance the game to the dealing stage
-            if (((BlackjackPlayer)players[players.Count - 1]).IsDoneBetting)
+            if (((BlackjackPlayer)players[^1]).IsDoneBetting)
             {
                 BlackjackCardGame blackjackGame = ((BlackjackCardGame)cardGame);
 

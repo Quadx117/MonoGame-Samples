@@ -143,7 +143,7 @@ public class ScreenManager : DrawableGameComponent
         while (screensToUpdate.Count > 0)
         {
             // Pop the topmost screen off the waiting list.
-            GameScreen screen = screensToUpdate[screensToUpdate.Count - 1];
+            GameScreen screen = screensToUpdate[^1];
 
             screensToUpdate.RemoveAt(screensToUpdate.Count - 1);
 
