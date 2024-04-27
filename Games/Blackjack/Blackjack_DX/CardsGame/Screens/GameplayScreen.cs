@@ -182,7 +182,7 @@ class GameplayScreen : GameScreen
                     playerCardOffset[player];
             default:
                 throw new ArgumentException(
-                    "Player index should be between 0 and 2", "player");
+                    "Player index should be between 0 and 2", nameof(player));
         }
     }
 

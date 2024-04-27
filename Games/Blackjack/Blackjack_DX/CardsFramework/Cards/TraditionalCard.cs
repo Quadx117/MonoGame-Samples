@@ -87,7 +87,7 @@ public class TraditionalCard
             default:
             {
                 throw new ArgumentException(
-                    "type must be single value", "type");
+                    $"{nameof(type)} must be single value", nameof(type));
             }
         }
 
@@ -113,7 +113,7 @@ public class TraditionalCard
             default:
             {
                 throw new ArgumentException(
-                    "value must be single value", "value");
+                    $"{nameof(value)} must be single value", nameof(value));
             }
         }
 
