@@ -1,2 +1,2 @@
-﻿using var game = new Shooter_DX.ShooterGame();
+﻿using Shooter_DX.ShooterGame game = new();
 game.Run();

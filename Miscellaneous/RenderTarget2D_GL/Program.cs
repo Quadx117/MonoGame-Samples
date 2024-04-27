@@ -1,2 +1,2 @@
-﻿using var game = new RenderTarget2D_GL.RenderTarget2D_GLDemo();
+﻿using RenderTarget2D_GL.RenderTarget2D_GLDemo game = new();
 game.Run();

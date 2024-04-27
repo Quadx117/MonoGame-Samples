@@ -1,2 +1,2 @@
-﻿using var game = new ProgressBar.ProgressBarDemo();
+﻿using ProgressBar.ProgressBarDemo game = new();
 game.Run();

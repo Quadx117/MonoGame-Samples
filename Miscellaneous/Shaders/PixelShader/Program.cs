@@ -1,2 +1,2 @@
-﻿using var game = new PixelShader.PixelShaderDemo();
+﻿using PixelShader.PixelShaderDemo game = new();
 game.Run();

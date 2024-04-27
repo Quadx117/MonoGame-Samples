@@ -1,2 +1,2 @@
-﻿using var game = new NinePatch.NinePatchDemo();
+﻿using NinePatch.NinePatchDemo game = new();
 game.Run();

@@ -1,2 +1,2 @@
-﻿using var game = new ParticleSystem.ParticleSystemDemo();
+﻿using ParticleSystem.ParticleSystemDemo game = new();
 game.Run();
