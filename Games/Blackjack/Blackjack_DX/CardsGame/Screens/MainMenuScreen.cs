@@ -1,25 +1,19 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // MainMenuScreen.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using GameStateManagement;
 using Microsoft.Xna.Framework;
-#endregion
 
 class MainMenuScreen : MenuScreen
 {
     public static string Theme = "Red";
-
-    #region Initializations
 
     /// <summary>
     /// Initializes a new instance of the screen.
@@ -28,7 +22,6 @@ class MainMenuScreen : MenuScreen
         : base("")
     {
     }
-    #endregion
 
     public override void LoadContent()
     {
@@ -50,7 +43,6 @@ class MainMenuScreen : MenuScreen
         base.LoadContent();
     }
 
-    #region Update
     /// <summary>
     /// Respond to "Play" Item Selection
     /// </summary>
@@ -82,5 +74,4 @@ class MainMenuScreen : MenuScreen
     {
         ScreenManager.Game.Exit();
     }
-    #endregion
 }

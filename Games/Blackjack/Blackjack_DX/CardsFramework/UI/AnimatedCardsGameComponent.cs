@@ -1,17 +1,13 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // AnimatedCardsGameComponent.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using Microsoft.Xna.Framework;
-#endregion
 
 /// <summary>
 /// An <see cref="AnimatedGameComponent"/> implemented for a card game
@@ -31,7 +27,6 @@ public class AnimatedCardsGameComponent : AnimatedGameComponent
         Card = card;
     }
 
-    #region Update and Render
     /// <summary>
     /// Updates the component.
     /// </summary>
@@ -72,5 +67,4 @@ public class AnimatedCardsGameComponent : AnimatedGameComponent
 
         CardGame.SpriteBatch.End();
     }
-    #endregion
 }

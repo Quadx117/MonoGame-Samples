@@ -1,16 +1,11 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // UIUtilty.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
-
-#region Using Statements
-#endregion
 
 public static class UIUtilty
 {

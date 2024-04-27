@@ -1,24 +1,19 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // PauseScreen.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
 using GameStateManagement;
 using Microsoft.Xna.Framework;
-#endregion
 
 class PauseScreen : MenuScreen
 {
-    #region Initializations
     /// <summary>
     /// Initializes a new instance of the screen.
     /// </summary>
@@ -27,7 +22,6 @@ class PauseScreen : MenuScreen
     {
 
     }
-    #endregion
 
     public override void LoadContent()
     {
@@ -46,7 +40,6 @@ class PauseScreen : MenuScreen
         base.LoadContent();
     }
 
-    #region Update
     /// <summary>
     /// Respond to "Return" Item Selection
     /// </summary>
@@ -104,5 +97,4 @@ class PauseScreen : MenuScreen
         ScreenManager.AddScreen(new BackgroundScreen(), null);
         ScreenManager.AddScreen(new MainMenuScreen(), null);
     }
-    #endregion
 }

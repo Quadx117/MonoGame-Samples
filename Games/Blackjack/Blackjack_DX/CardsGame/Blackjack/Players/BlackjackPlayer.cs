@@ -1,19 +1,14 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // BlackjackPlayer.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using CardsFramework;
-
-#endregion
 
 /// <summary>
 /// Depicts hands the player can interact with.
@@ -26,7 +21,6 @@ public enum HandTypes
 
 public class BlackjackPlayer : Player
 {
-    #region Fields/Properties
     // Various fields which depict the state of the players two hands
     private int firstValue;
     private bool firstValueConsiderAce;
@@ -91,7 +85,6 @@ public class BlackjackPlayer : Player
     public float Balance { get; set; }
     public float BetAmount { get; private set; }
     public bool IsInsurance { get; set; }
-    #endregion
 
     /// <summary>
     /// Creates a new blackjack player instance.
@@ -137,7 +130,6 @@ public class BlackjackPlayer : Player
         }
     }
 
-    #region Public Methods
     /// <summary>
     /// Bets a specified amount of money, if the player's balance permits it.
     /// </summary>
@@ -246,5 +238,4 @@ public class BlackjackPlayer : Player
         // Move the top card in the first hand to the second hand
         Hand[1].MoveToHand(SecondHand);
     }
-    #endregion
 }

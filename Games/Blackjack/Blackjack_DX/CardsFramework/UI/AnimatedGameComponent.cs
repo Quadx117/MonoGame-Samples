@@ -1,20 +1,16 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // AnimatedGameComponent.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
 
 /// <summary>
 /// A game component.
@@ -23,8 +19,6 @@ using Microsoft.Xna.Framework.Graphics;
 /// </summary>
 public class AnimatedGameComponent : DrawableGameComponent
 {
-    #region Fields and Properties
-
     public Texture2D CurrentFrame { get; set; }
     public Rectangle? CurrentSegment { get; set; }
     public string Text { get; set; }
@@ -42,9 +36,7 @@ public class AnimatedGameComponent : DrawableGameComponent
     public virtual bool IsAnimating { get { return runningAnimations.Count > 0; } }
 
     public CardsGame CardGame { get; private set; }
-    #endregion
 
-    #region Initializatios
     /// <summary>
     /// Initializes a new instance of the class, using black text color.
     /// </summary>
@@ -79,9 +71,7 @@ public class AnimatedGameComponent : DrawableGameComponent
         CardGame = cardGame;
         CurrentFrame = currentFrame;
     }
-    #endregion
 
-    #region Update and Render
     /// <summary>
     /// Keeps track of the component's animations.
     /// </summary>
@@ -165,7 +155,6 @@ public class AnimatedGameComponent : DrawableGameComponent
 
         spriteBatch.End();
     }
-    #endregion
 
     /// <summary>
     /// Adds an animation to the animated component.

@@ -1,35 +1,27 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // InstructionScreen.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using GameStateManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-#endregion
-
 class InstructionScreen : GameplayScreen
 {
-    #region Fields
     Texture2D background;
     SpriteFont font;
     GameplayScreen gameplayScreen;
     string theme;
     bool isExit = false;
     bool isExited = false;
-    #endregion
 
-    #region Initialization
     public InstructionScreen(string theme)
         : base("")
     {
@@ -41,9 +33,7 @@ class InstructionScreen : GameplayScreen
         EnabledGestures = GestureType.Tap;
 #endif
     }
-    #endregion
 
-    #region Loading
     /// <summary>
     /// Load the screen resources
     /// </summary>
@@ -55,9 +45,7 @@ class InstructionScreen : GameplayScreen
         // Create a new instance of the gameplay screen
         gameplayScreen = new GameplayScreen(theme);
     }
-    #endregion
 
-    #region Update and Render
     /// <summary>
     /// Exit the screen after a tap or click
     /// </summary>
@@ -140,5 +128,4 @@ class InstructionScreen : GameplayScreen
         spriteBatch.End();
         base.Draw(gameTime);
     }
-    #endregion
 }

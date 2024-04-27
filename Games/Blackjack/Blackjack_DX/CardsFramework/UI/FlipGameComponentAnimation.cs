@@ -1,25 +1,19 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // FlipGameComponentAnimation.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
 
 public class FlipGameComponentAnimation : AnimatedGameComponentAnimation
 {
-    #region Fields
     protected int percent = 0;
     public bool IsFromFaceDownToFaceUp = true;
-    #endregion
 
     /// <summary>
     /// Runs the flip animation, which makes the component appear as if it has

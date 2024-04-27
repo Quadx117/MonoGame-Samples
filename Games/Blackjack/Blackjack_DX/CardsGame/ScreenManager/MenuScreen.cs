@@ -1,21 +1,17 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // MenuScreen.cs
 //
 // XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace GameStateManagement;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-#endregion
 
 /// <summary>
 /// Base class for screens that contain a menu of options. The user can
@@ -23,8 +19,6 @@ using Microsoft.Xna.Framework.Input;
 /// </summary>
 abstract class MenuScreen : GameScreen
 {
-    #region Fields
-
     // the number of pixels to pad above and below menu entries for touch input
     const int menuEntryPadding = 35;
 
@@ -35,9 +29,6 @@ abstract class MenuScreen : GameScreen
     bool isMouseDown = false;
 #endif
     Rectangle bounds;
-    #endregion
-
-    #region Properties
 
     /// <summary>
     /// Gets the list of menu entries, so derived classes can add
@@ -47,10 +38,6 @@ abstract class MenuScreen : GameScreen
     {
         get { return menuEntries; }
     }
-
-    #endregion
-
-    #region Initialization
 
     /// <summary>
     /// Constructor.
@@ -67,10 +54,6 @@ abstract class MenuScreen : GameScreen
         TransitionOnTime = TimeSpan.FromSeconds(0.5);
         TransitionOffTime = TimeSpan.FromSeconds(0.5);
     }
-
-    #endregion
-
-    #region Handle Input
 
     /// <summary>
     /// Allows the screen to create the hit bounds for a particular menu entry.
@@ -231,18 +214,12 @@ abstract class MenuScreen : GameScreen
         OnCancel(e.PlayerIndex);
     }
 
-    #endregion
-
-    #region Loading
     public override void LoadContent()
     {
         bounds = ScreenManager.SafeArea;
 
         base.LoadContent();
     }
-    #endregion
-
-    #region Update and Draw
 
     /// <summary>
     /// Allows the screen the chance to position the menu entries. By default
@@ -341,9 +318,6 @@ abstract class MenuScreen : GameScreen
         spriteBatch.End();
     }
 
-    #endregion
-
-    #region Public functions
     public void UpdateMenuEntryDestination()
     {
         Rectangle bounds = ScreenManager.SafeArea;
@@ -370,5 +344,4 @@ abstract class MenuScreen : GameScreen
                     bounds.Bottom - textureSize.Height * 2, maxWidth, 50);
         }
     }
-    #endregion
 }

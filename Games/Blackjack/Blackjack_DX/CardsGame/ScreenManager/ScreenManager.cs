@@ -1,15 +1,12 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // ScreenManager.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace GameStateManagement;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +15,6 @@ using System.IO.IsolatedStorage;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
 
 /// <summary>
 /// The screen manager is a component which manages one or more GameScreen
@@ -28,8 +24,6 @@ using Microsoft.Xna.Framework.Graphics;
 /// </summary>
 public class ScreenManager : DrawableGameComponent
 {
-    #region Fields
-
     List<GameScreen> screens = new List<GameScreen>();
     List<GameScreen> screensToUpdate = new List<GameScreen>();
 
@@ -43,10 +37,6 @@ public class ScreenManager : DrawableGameComponent
     bool isInitialized;
 
     bool traceEnabled;
-
-    #endregion
-
-    #region Properties
 
     /// <summary>
     /// A default SpriteBatch shared by all the screens. This saves
@@ -97,9 +87,6 @@ public class ScreenManager : DrawableGameComponent
             return Game.GraphicsDevice.Viewport.TitleSafeArea;
         }
     }
-    #endregion
-
-    #region Initialization
 
     /// <summary>
     /// Constructs a new screen manager component.
@@ -155,10 +142,6 @@ public class ScreenManager : DrawableGameComponent
             screen.UnloadContent();
         }
     }
-
-    #endregion
-
-    #region Update and Draw
 
     /// <summary>
     /// Allows each screen to run logic.
@@ -239,10 +222,6 @@ public class ScreenManager : DrawableGameComponent
             screen.Draw(gameTime);
         }
     }
-
-    #endregion
-
-    #region Public Methods
 
     /// <summary>
     /// Adds a new screen to the screen manager.
@@ -455,6 +434,4 @@ public class ScreenManager : DrawableGameComponent
             storage.DeleteFile(Path.Combine("ScreenManager", file));
         }
     }
-
-    #endregion
 }

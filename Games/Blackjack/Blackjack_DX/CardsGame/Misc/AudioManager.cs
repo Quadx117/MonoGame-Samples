@@ -1,28 +1,22 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // AudioManager.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
-#endregion
 
 /// <summary>
 /// Component that manages audio playback for all sounds.
 /// </summary>
 public class AudioManager : GameComponent
 {
-    #region Fields
-
     /// <summary>
     /// The singleton for this type.
     /// </summary>
@@ -41,10 +35,6 @@ public class AudioManager : GameComponent
     Dictionary<string, SoundEffectInstance> soundBank;
     Dictionary<string, Song> musicBank;
 
-    #endregion
-
-    #region Initialization
-
     private AudioManager(Game game)
         : base(game) { }
 
@@ -60,10 +50,6 @@ public class AudioManager : GameComponent
 
         game.Components.Add(audioManager);
     }
-
-    #endregion
-
-    #region Loading Methodes
 
     /// <summary>
     /// Loads a single sound into the sound manager, giving it a specified alias.
@@ -119,10 +105,6 @@ public class AudioManager : GameComponent
         LoadSong("InGameSong_Loop", "InGameSong_Loop");
         LoadSong("MenuMusic_Loop", "MenuMusic_Loop");
     }
-
-    #endregion
-
-    #region Sound Methods
 
     /// <summary>
     /// Indexer. Return a sound instance by name.
@@ -280,10 +262,6 @@ public class AudioManager : GameComponent
         }
     }
 
-    #endregion
-
-    #region Instance Disposal Methods
-
     /// <summary>
     /// Clean up the component when it is disposing.
     /// </summary>
@@ -306,6 +284,4 @@ public class AudioManager : GameComponent
             base.Dispose(disposing);
         }
     }
-
-    #endregion
 }

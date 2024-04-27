@@ -1,18 +1,14 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // PlayerIndexEventArgs.cs
 //
 // XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace GameStateManagement;
 
-#region Using Statements
 using System;
 using Microsoft.Xna.Framework;
-#endregion
 
 /// <summary>
 /// Custom event argument which includes the index of the player who

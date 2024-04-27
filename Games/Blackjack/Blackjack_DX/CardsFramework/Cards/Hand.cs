@@ -1,18 +1,14 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // Hand.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
-#endregion
 
 /// <summary>
 /// Represents a hand of cards held by a player, dealer or the game table
@@ -30,7 +26,6 @@ public class Hand : CardPacket
     /// </summary>
     public event EventHandler<CardEventArgs> ReceivedCard;
 
-    #region Internal Methods
     /// <summary>
     /// Adds the specified card to the hand
     /// </summary>
@@ -54,5 +49,4 @@ public class Hand : CardPacket
     {
         this.Cards.AddRange(cards);
     }
-    #endregion
 }

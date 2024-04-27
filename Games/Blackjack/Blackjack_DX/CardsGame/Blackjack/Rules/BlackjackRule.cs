@@ -1,19 +1,14 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // BlackjackRule.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System.Collections.Generic;
 using CardsFramework;
-
-#endregion
 
 /// <summary>
 /// Represents a rule which checks if one of the player has achieved "blackjack".

@@ -1,18 +1,14 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // CardsCollection.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
-#endregion
 
 /// <summary>
 /// Card related <see cref="EventArgs"/> holding event information of a <see cref="TraditionalCard"/> 
@@ -32,7 +28,6 @@ public class CardEventArgs : EventArgs
 /// </remarks>
 public class CardPacket
 {
-    #region Field Property Indexer
     protected List<TraditionalCard> Cards { get; set; }
 
     /// <summary>
@@ -62,9 +57,7 @@ public class CardPacket
             return Cards[index];
         }
     }
-    #endregion
 
-    #region Initializations
     /// <summary>
     /// Initializes a new instance of the <see cref="CardPacket"/> class.
     /// </summary>
@@ -99,9 +92,7 @@ public class CardPacket
             }
         }
     }
-    #endregion
 
-    #region Private Methods
     /// <summary>
     /// Adds suits of cards to the collection.
     /// </summary>
@@ -206,9 +197,7 @@ public class CardPacket
             Cards.Add(new TraditionalCard(suit, CardValue.King, this));
         }
     }
-    #endregion
 
-    #region Public Methods
     /// <summary>
     /// Shuffles the cards in the packet by randomly changing card placement.
     /// </summary>
@@ -296,5 +285,4 @@ public class CardPacket
 
         return dealtCards;
     }
-    #endregion
 }

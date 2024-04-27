@@ -1,18 +1,14 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // MathUtility.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using System;
 using Microsoft.Xna.Framework;
-#endregion
 
 public static class MathUtility
 {

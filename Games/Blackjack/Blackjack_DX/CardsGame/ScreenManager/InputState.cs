@@ -1,19 +1,14 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // InputState.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace GameStateManagement;
 
-#region Using Statements
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-
-#endregion
 
 /// <summary>
 /// Helper for reading input from keyboard, gamepad, and touch input. This class 
@@ -23,8 +18,6 @@ using Microsoft.Xna.Framework.Input;
 /// </summary>
 public class InputState
 {
-    #region Fields
-
     public const int MaxInputs = 4;
 
     public readonly KeyboardState[] CurrentKeyboardStates;
@@ -41,10 +34,6 @@ public class InputState
     public readonly List<GestureSample> Gestures = new List<GestureSample>();
 #endif
 
-    #endregion
-
-    #region Initialization
-
     /// <summary>
     /// Constructs a new input state.
     /// </summary>
@@ -58,10 +47,6 @@ public class InputState
 
         GamePadWasConnected = new bool[MaxInputs];
     }
-
-    #endregion
-
-    #region Public Methods
 
     /// <summary>
     /// Reads the latest state of the keyboard and gamepad.
@@ -224,6 +209,4 @@ public class InputState
                IsNewButtonPress(Buttons.Back, controllingPlayer, out playerIndex) ||
                IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex);
     }
-
-    #endregion
 }

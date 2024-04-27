@@ -1,31 +1,24 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // TransitionGameComponentAnimation.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using Microsoft.Xna.Framework;
-#endregion
 
 /// <summary>
 /// An animation which moves a component from one point to the other.
 /// </summary>
 public class TransitionGameComponentAnimation : AnimatedGameComponentAnimation
 {
-    #region Fields
     Vector2 sourcePosition;
     Vector2 positionDelta;
     float percent = 0;
     Vector2 destinationPosition;
-    #endregion
 
-    #region Initializations
     /// <summary>
     /// Initializes a new instance of the class.
     /// </summary>
@@ -38,7 +31,6 @@ public class TransitionGameComponentAnimation : AnimatedGameComponentAnimation
         this.sourcePosition = sourcePosition;
         positionDelta = destinationPosition - sourcePosition;
     }
-    #endregion
 
     /// <summary>
     /// Runs the transition animation.

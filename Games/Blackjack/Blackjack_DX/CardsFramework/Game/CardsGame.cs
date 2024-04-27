@@ -1,20 +1,16 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // Cardsgame.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
 
 /// <summary>
 /// A cards-game handler
@@ -25,7 +21,6 @@ using Microsoft.Xna.Framework.Graphics;
 /// </remarks>
 public abstract class CardsGame
 {
-    #region Fields and Properties
     protected List<GameRule> rules;
     protected List<Player> players;
     protected CardPacket dealer;
@@ -39,9 +34,7 @@ public abstract class CardsGame
     public SpriteFont Font { get; set; }
     public SpriteBatch SpriteBatch { get; set; }
     public Game Game { get; set; }
-    #endregion
 
-    #region Initializations
     /// <summary>
     /// Initializes a new instance of the <see cref="CardsGame"/> class.
     /// </summary>
@@ -79,9 +72,7 @@ public abstract class CardsGame
         GameTable.DrawOrder = -10000;
         game.Components.Add(GameTable);
     }
-    #endregion
 
-    #region Virtual Methods
     /// <summary>
     /// Checks which of the game's rules need to be fired.
     /// </summary>
@@ -132,9 +123,7 @@ public abstract class CardsGame
                 throw new ArgumentException("Ambigous card value");
         }
     }
-    #endregion
 
-    #region Abstract Methods
     /// <summary>
     /// Adds a player to the game.
     /// </summary>
@@ -156,9 +145,7 @@ public abstract class CardsGame
     /// Initializes the game lets the players start playing.
     /// </summary>
     public abstract void StartPlaying();
-    #endregion
 
-    #region Loading
     /// <summary>
     /// Load the basic contents for a card game (the card assets)
     /// </summary>
@@ -198,5 +185,4 @@ public abstract class CardsGame
         cardsAssets.Add(assetName,
                         Game.Content.Load<Texture2D>($@"Images\{folder}\{assetName}"));
     }
-    #endregion
 }

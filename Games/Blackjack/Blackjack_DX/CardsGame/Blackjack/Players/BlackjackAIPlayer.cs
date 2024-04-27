@@ -1,27 +1,21 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // BlackjackAIPlayer.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using CardsFramework;
-#endregion
 
 class BlackjackAIPlayer : BlackjackPlayer
 {
-    #region Fields
     static Random random = new Random();
 
     public event EventHandler Hit;
     public event EventHandler Stand;
-    #endregion
 
     /// <summary>
     /// Creates a new instance of the <see cref="BlackjackAIPlayer"/> class.
@@ -33,7 +27,6 @@ class BlackjackAIPlayer : BlackjackPlayer
     {
     }
 
-    #region Pulic Methods
     /// <summary>
     /// Performs a move during a round.
     /// </summary>
@@ -71,5 +64,4 @@ class BlackjackAIPlayer : BlackjackPlayer
 
         return 0;
     }
-    #endregion
 }

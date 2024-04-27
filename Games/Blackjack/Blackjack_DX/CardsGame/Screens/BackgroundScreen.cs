@@ -1,20 +1,16 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // BackgroundScreen.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using GameStateManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
 
 class BackgroundScreen : GameScreen
 {
@@ -30,7 +26,6 @@ class BackgroundScreen : GameScreen
         TransitionOffTime = TimeSpan.FromSeconds(0.5);
     }
 
-    #region Loading
     /// <summary>
     /// Load graphics content for the screen.
     /// </summary>
@@ -40,9 +35,7 @@ class BackgroundScreen : GameScreen
         safeArea = ScreenManager.Game.GraphicsDevice.Viewport.TitleSafeArea;
         base.LoadContent();
     }
-    #endregion
 
-    #region Update and Render
     /// <summary>
     /// Allows the screen to run logic, such as updating the transition position.
     /// Unlike HandleInput, this method is called regardless of whether the screen
@@ -72,5 +65,4 @@ class BackgroundScreen : GameScreen
 
         base.Draw(gameTime);
     }
-    #endregion
 }

@@ -1,26 +1,21 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // GameTable.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
 
 /// <summary>
 /// The UI representation of the table where the game is played.
 /// </summary>
 public class GameTable : DrawableGameComponent
 {
-    #region Fields and Properties and Indexer
     public string Theme { get; private set; }
     public Texture2D TableTexture { get; private set; }
     public Vector2 DealerPosition { get; private set; }
@@ -45,9 +40,7 @@ public class GameTable : DrawableGameComponent
                 PlaceOrder(index);
         }
     }
-    #endregion
 
-    #region Initiaizations
     /// <summary>
     /// Initializes a new instance of the class.
     /// </summary>
@@ -81,9 +74,7 @@ public class GameTable : DrawableGameComponent
 
         base.LoadContent();
     }
-    #endregion
 
-    #region Render
     /// <summary>
     /// Render the table.
     /// </summary>
@@ -100,5 +91,4 @@ public class GameTable : DrawableGameComponent
 
         base.Draw(gameTime);
     }
-    #endregion
 }

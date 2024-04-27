@@ -1,24 +1,19 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // BlackjackAnimatedPlayerHandComponent.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using CardsFramework;
 using Microsoft.Xna.Framework;
-#endregion
 
 public class BlackjackAnimatedPlayerHandComponent : AnimatedHandGameComponent
 {
     Vector2 offset;
 
-    #region Initiaizations
     /// <summary>
     /// Creates a new instance of the 
     /// <see cref="BlackjackAnimatedPlayerHandComponent"/> class.
@@ -48,7 +43,6 @@ public class BlackjackAnimatedPlayerHandComponent : AnimatedHandGameComponent
     {
         this.offset = offset;
     }
-    #endregion
 
     /// <summary>
     /// Gets the position relative to the hand position at which a specific card

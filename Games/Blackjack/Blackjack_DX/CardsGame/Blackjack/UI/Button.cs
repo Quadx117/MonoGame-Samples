@@ -1,26 +1,21 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // Button.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using CardsFramework;
 using GameStateManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-#endregion
 
 public class Button : AnimatedGameComponent
 {
-    #region Fields and Properties
     bool isKeyDown = false;
     bool isPressed = false;
     SpriteBatch spriteBatch;
@@ -39,9 +34,6 @@ public class Button : AnimatedGameComponent
 
     InputHelper inputHelper;
 
-    #endregion
-
-    #region Initiaizations
     /// <summary>
     /// Creates a new instance of the <see cref="Button"/> class.
     /// </summary>
@@ -86,9 +78,7 @@ public class Button : AnimatedGameComponent
 
         base.Initialize();
     }
-    #endregion
 
-    #region Loading
     /// <summary>
     /// Loads the content required bt the button.
     /// </summary>
@@ -105,9 +95,7 @@ public class Button : AnimatedGameComponent
 
         base.LoadContent();
     }
-    #endregion
 
-    #region Update and Render
     /// <summary>
     /// Performs update logic for the button.
     /// </summary>
@@ -236,7 +224,6 @@ public class Button : AnimatedGameComponent
 
         base.Draw(gameTime);
     }
-    #endregion
 
     protected override void Dispose(bool disposing)
     {

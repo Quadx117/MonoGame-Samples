@@ -1,31 +1,24 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // ScaleGameComponentAnimation.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
 
 /// <summary>
 /// An animation which scales a component.
 /// </summary>
 public class ScaleGameComponentAnimation : AnimatedGameComponentAnimation
 {
-    #region Fields
     float percent = 0;
     float beginFactor;
     float factorDelta;
-    #endregion
 
-    #region Initialzations
     /// <summary>
     /// Initializes a new instance of the class.
     /// </summary>
@@ -36,7 +29,6 @@ public class ScaleGameComponentAnimation : AnimatedGameComponentAnimation
         this.beginFactor = beginFactor;
         factorDelta = endFactor - beginFactor;
     }
-    #endregion
 
     /// <summary>
     /// Runs the scaling animation.

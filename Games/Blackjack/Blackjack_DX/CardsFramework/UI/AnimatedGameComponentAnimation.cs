@@ -1,25 +1,20 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // AnimatedGameComponentAnimation.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using System;
 using Microsoft.Xna.Framework;
-#endregion
 
 /// <summary>
 /// Represents an animation that can alter an animated component.
 /// </summary>
 public class AnimatedGameComponentAnimation
 {
-    #region Fields and Properties
     protected TimeSpan Elapsed { get; set; }
     public AnimatedGameComponent Component { get; internal set; }
     /// <summary>
@@ -77,9 +72,7 @@ public class AnimatedGameComponentAnimation
     private bool isDone = false;
 
     private bool isStarted = false;
-    #endregion
 
-    #region Initiaizations
     /// <summary>
     /// Initializes a new instance of the class. Be default, an animation starts
     /// immediately and has a duration of 150 milliseconds.
@@ -89,7 +82,6 @@ public class AnimatedGameComponentAnimation
         StartTime = DateTime.Now;
         Duration = TimeSpan.FromMilliseconds(150);
     }
-    #endregion
 
     /// <summary>
     /// Check whether or not the animation is done playing. Looped animations

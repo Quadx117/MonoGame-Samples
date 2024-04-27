@@ -1,23 +1,18 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // AnimatedHandGameComponent.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-#endregion
 
 public class AnimatedHandGameComponent : AnimatedGameComponent
 {
-    #region Fields and Properties
     public int Place { get; private set; }
     public readonly Hand Hand;
 
@@ -42,9 +37,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
     /// Returns the animated cards contained in the hand.
     /// </summary>
     public IEnumerable<AnimatedCardsGameComponent> AnimatedCards => heldAnimatedCards.AsReadOnly();
-    #endregion
 
-    #region Initiaizations
     /// <summary>
     /// Initializes a new instance of the animated hand component. This means
     /// setting the hand's position and initializing all animated cards and their
@@ -89,9 +82,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
 
         Game.Components.ComponentRemoved += Components_ComponentRemoved;
     }
-    #endregion
 
-    #region Update
     /// <summary>
     /// Updates the component.
     /// </summary>
@@ -110,9 +101,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
         }
         base.Update(gameTime);
     }
-    #endregion
 
-    #region Public Methods
     /// <summary>
     /// Gets the card's offset from the hand position according to its index
     /// in the hand.
@@ -168,9 +157,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
     {
         return location == -1 || location >= heldAnimatedCards.Count ? null : heldAnimatedCards[location];
     }
-    #endregion
 
-    #region Event Handlers
     /// <summary>
     /// Handles the ComponentRemoved event of the Components control.
     /// </summary>
@@ -225,7 +212,6 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
         heldAnimatedCards.Add(animatedCardGameComponent);
         Game.Components.Add(animatedCardGameComponent);
     }
-    #endregion
 
     /// <summary>
     /// Calculate the estimated time at which the longest lasting animation currently managed 

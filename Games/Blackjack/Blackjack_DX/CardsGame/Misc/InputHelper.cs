@@ -1,26 +1,21 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // InputHelper.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-#endregion
 
 /// <summary>
 /// Used to simulate a cursor on the Xbox.
 /// </summary>
 public class InputHelper : DrawableGameComponent
 {
-    #region Fields
     //public static Game Game;
     //static InputHelper instance;
 
@@ -31,9 +26,6 @@ public class InputHelper : DrawableGameComponent
     Texture2D texture;
     SpriteBatch spriteBatch;
     float maxVelocity;
-    #endregion
-
-    #region Initialization
 
     public InputHelper(Game game)
         : base(game)
@@ -46,10 +38,6 @@ public class InputHelper : DrawableGameComponent
         drawPosition = new Vector2(Game.GraphicsDevice.Viewport.Width / 2,
             Game.GraphicsDevice.Viewport.Height / 2);
     }
-
-    #endregion
-
-    #region Properties
 
     //public static InputHelper Instance
     //{
@@ -69,10 +57,6 @@ public class InputHelper : DrawableGameComponent
                 texture.Height / 2f);
         }
     }
-
-    #endregion
-
-    #region Update and Render
 
     /// <summary>
     /// Updates itself.
@@ -105,6 +89,4 @@ public class InputHelper : DrawableGameComponent
             SpriteEffects.None, 0);
         spriteBatch.End();
     }
-
-    #endregion
 }

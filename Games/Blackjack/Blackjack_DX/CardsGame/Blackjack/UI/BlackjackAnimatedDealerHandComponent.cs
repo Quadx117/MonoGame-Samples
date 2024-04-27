@@ -1,18 +1,14 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // BlackJackAnimatedDealerHandComponent.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using CardsFramework;
 using Microsoft.Xna.Framework;
-#endregion
 
 public class BlackjackAnimatedDealerHandComponent : AnimatedHandGameComponent
 {

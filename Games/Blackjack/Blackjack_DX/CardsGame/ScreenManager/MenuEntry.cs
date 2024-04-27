@@ -1,19 +1,15 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // MenuEntry.cs
 //
 // XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace GameStateManagement;
 
-#region Using Statements
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
 
 /// <summary>
 /// Helper class represents a single entry in a MenuScreen. By default this
@@ -23,8 +19,6 @@ using Microsoft.Xna.Framework.Graphics;
 /// </summary>
 class MenuEntry
 {
-    #region Fields
-
     /// <summary>
     /// The text rendered for this entry.
     /// </summary>
@@ -39,9 +33,7 @@ class MenuEntry
     float selectionFade;
 
     Rectangle destination;
-    #endregion
 
-    #region Properties
     /// <summary>
     /// Gets or sets the text of this menu entry.
     /// </summary>
@@ -63,9 +55,7 @@ class MenuEntry
     public float Scale { get; set; }
 
     public float Rotation { get; set; }
-    #endregion
 
-    #region Events
     /// <summary>
     /// Event raised when the menu entry is selected.
     /// </summary>
@@ -79,9 +69,7 @@ class MenuEntry
         if (Selected != null)
             Selected(this, new PlayerIndexEventArgs(playerIndex));
     }
-    #endregion
 
-    #region Initialization
     /// <summary>
     /// Constructs a new menu entry with the specified text.
     /// </summary>
@@ -92,9 +80,7 @@ class MenuEntry
         Scale = 1f;
         Rotation = 0f;
     }
-    #endregion
 
-    #region Update and Draw
     /// <summary>
     /// Updates the menu entry.
     /// </summary>
@@ -177,5 +163,4 @@ class MenuEntry
 
         return textPosition;
     }
-    #endregion
 }

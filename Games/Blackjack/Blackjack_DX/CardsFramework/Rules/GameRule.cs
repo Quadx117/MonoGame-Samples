@@ -1,17 +1,13 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // GameRule.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using System;
-#endregion
 
 /// <summary>
 /// Represents a rule in card game.

@@ -1,22 +1,18 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // BlackjackGame.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
 using CardsFramework;
 using GameStateManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
 
 /// <summary>
 /// The various possible game states.
@@ -33,7 +29,6 @@ public enum BlackjackGameState
 
 class BlackjackCardGame : CardsGame
 {
-    #region Fields and Properties
     Dictionary<Player, string> playerHandValueTexts =
         new Dictionary<Player, string>();
     Dictionary<Player, string> playerSecondHandValueTexts =
@@ -70,9 +65,7 @@ class BlackjackCardGame : CardsGame
 
     const int maxPlayers = 3;
     const int minPlayers = 1;
-    #endregion
 
-    #region Initializations
     /// <summary>
     /// Creates a new instance of the <see cref="BlackjackCardGame"/> class.
     /// </summary>
@@ -162,9 +155,7 @@ class BlackjackCardGame : CardsGame
         buttons["Split"].Click += Split_Click;
         buttons["Insurance"].Click += Insurance_Click;
     }
-    #endregion
 
-    #region Update and Render
     /// <summary>
     /// Perform the game's update logic.
     /// </summary>
@@ -514,9 +505,7 @@ class BlackjackCardGame : CardsGame
         SpriteBatch.DrawString(Font, value, position, valueColor);
 
     }
-    #endregion
 
-    #region Override Methods
     /// <summary>
     /// Adds a player to the game.
     /// </summary>
@@ -625,9 +614,7 @@ class BlackjackCardGame : CardsGame
             }
         }
     }
-    #endregion
 
-    #region Helper Methods
     /// <summary>
     /// Display an animation when a card is dealt.
     /// </summary>
@@ -1454,9 +1441,7 @@ class BlackjackCardGame : CardsGame
     {
         showInsurance = false;
     }
-    #endregion
 
-    #region Event Handlers
     /// <summary>
     /// Shows the insurance button if the first player can afford insurance.
     /// </summary>
@@ -1654,5 +1639,4 @@ class BlackjackCardGame : CardsGame
         screenManager.AddScreen(new BackgroundScreen(), null);
         screenManager.AddScreen(new MainMenuScreen(), null);
     }
-    #endregion
 }

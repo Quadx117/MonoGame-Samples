@@ -1,19 +1,14 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // InsuranceRule.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using CardsFramework;
-
-#endregion
 
 /// <summary>
 /// Represents a rule which checks if the human player can use insurance

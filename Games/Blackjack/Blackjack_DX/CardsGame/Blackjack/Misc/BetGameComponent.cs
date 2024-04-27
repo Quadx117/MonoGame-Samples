@@ -1,15 +1,12 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // BetGameComponent.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
 using CardsFramework;
@@ -17,11 +14,9 @@ using GameStateManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-#endregion
 
 public class BetGameComponent : DrawableGameComponent
 {
-    #region Fields and Properties
     readonly List<Player> players;
     string theme;
     int[] assetNames = { 5, 25, 100, 500 };
@@ -45,9 +40,7 @@ public class BetGameComponent : DrawableGameComponent
     int currentBet = 0;
     InputState input;
     InputHelper inputHelper;
-    #endregion
 
-    #region Initiaizations
     /// <summary>
     /// Creates a new instance of the <see cref="BetGameComponent"/> class.
     /// </summary>
@@ -130,9 +123,7 @@ public class BetGameComponent : DrawableGameComponent
         Game.Components.Add(clear);
         ShowAndEnableButtons(false);
     }
-    #endregion
 
-    #region Loading
     /// <summary>
     /// Load component content.
     /// </summary>
@@ -153,9 +144,7 @@ public class BetGameComponent : DrawableGameComponent
 
         base.LoadContent();
     }
-    #endregion
 
-    #region Update and Render
     /// <summary>
     /// Perform update logic related to the component.
     /// </summary>
@@ -340,9 +329,7 @@ public class BetGameComponent : DrawableGameComponent
 
         base.Draw(gameTime);
     }
-    #endregion
 
-    #region Public Methods
     /// <summary>
     /// Adds the chip to one of the player betting zones.
     /// </summary>
@@ -505,9 +492,7 @@ public class BetGameComponent : DrawableGameComponent
             player.ClearBet();
         }
     }
-    #endregion
 
-    #region Private Methods
     /// <summary>
     /// Adds chips to a specified player in order to reach a specified bet amount.
     /// </summary>
@@ -723,9 +708,7 @@ public class BetGameComponent : DrawableGameComponent
         }
         return factor;
     }
-    #endregion
 
-    #region Event Hanlders
     /// <summary>
     /// Handles the Click event of the Clear button.
     /// </summary>
@@ -763,5 +746,4 @@ public class BetGameComponent : DrawableGameComponent
         currentChipComponent.Clear();
         currentBet = 0;
     }
-    #endregion
 }

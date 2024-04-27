@@ -1,19 +1,15 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // GameScreen.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace GameStateManagement;
 
-#region Using Statements
 using System;
 using System.IO;
 using Microsoft.Xna.Framework;
-#endregion
 
 /// <summary>
 /// Enum describes the screen transition state.
@@ -35,8 +31,6 @@ public enum ScreenState
 /// </summary>
 public abstract class GameScreen
 {
-    #region Properties
-
     /// <summary>
     /// Normally when one screen is brought up over the top of another,
     /// the first screen will transition off to make room for the new
@@ -210,10 +204,6 @@ public abstract class GameScreen
 
     bool isSerializable = true;
 
-    #endregion
-
-    #region Initialization
-
     /// <summary>
     /// Load graphics content for the screen.
     /// </summary>
@@ -223,10 +213,6 @@ public abstract class GameScreen
     /// Unload content for the screen.
     /// </summary>
     public virtual void UnloadContent() { }
-
-    #endregion
-
-    #region Update and Draw
 
     /// <summary>
     /// Allows the screen to run logic, such as updating the transition position.
@@ -320,10 +306,6 @@ public abstract class GameScreen
     /// </summary>
     public virtual void Draw(GameTime gameTime) { }
 
-    #endregion
-
-    #region Public Methods
-
     /// <summary>
     /// Tells the screen to serialize its state into the given stream.
     /// </summary>
@@ -353,9 +335,6 @@ public abstract class GameScreen
         }
     }
 
-    #endregion
-
-    #region Helper Methods
     /// <summary>
     /// A helper method which loads assets using the screen manager's
     /// associated game content loader.
@@ -368,5 +347,4 @@ public abstract class GameScreen
     {
         return ScreenManager.Game.Content.Load<T>(assetName);
     }
-    #endregion
 }

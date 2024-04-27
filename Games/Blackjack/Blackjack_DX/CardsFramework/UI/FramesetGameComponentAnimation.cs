@@ -1,34 +1,27 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // FramesetGameComponentAnimation.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
 
 /// <summary>
 /// A "typical" animation that consists of alternating between a set of frames.
 /// </summary>
 public class FramesetGameComponentAnimation : AnimatedGameComponentAnimation
 {
-    #region Fields
     Texture2D framesTexture;
     int numberOfFrames;
     int numberOfFramePerRow;
     Vector2 frameSize;
 
     private double percent = 0;
-    #endregion
 
-    #region Initializations
     /// <summary>
     /// Creates a new instance of the class.
     /// </summary>
@@ -44,7 +37,6 @@ public class FramesetGameComponentAnimation : AnimatedGameComponentAnimation
         this.numberOfFramePerRow = numberOfFramePerRow;
         this.frameSize = frameSize;
     }
-    #endregion
 
     /// <summary>
     /// Runs the frame set animation.

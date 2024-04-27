@@ -1,26 +1,20 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // GameplayScreen.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
 using CardsFramework;
 using GameStateManagement;
 using Microsoft.Xna.Framework;
 
-#endregion
-
 class GameplayScreen : GameScreen
 {
-    #region Fields and Properties
     BlackjackCardGame blackJackGame;
 
     InputHelper inputHelper;
@@ -36,9 +30,7 @@ class GameplayScreen : GameScreen
         new Vector2(336f * BlackjackGame.WidthScale, 210f * BlackjackGame.HeightScale),
         new Vector2(570f * BlackjackGame.WidthScale, 190f * BlackjackGame.HeightScale)
     };
-    #endregion
 
-    #region Initiaizations
     /// <summary>
     /// Initializes a new instance of the screen.
     /// </summary>
@@ -51,9 +43,7 @@ class GameplayScreen : GameScreen
 #endif
         this.theme = theme;
     }
-    #endregion
 
-    #region Loading
     /// <summary>
     /// Load content and initializes the actual game.
     /// </summary>
@@ -89,9 +79,7 @@ class GameplayScreen : GameScreen
 
         base.UnloadContent();
     }
-    #endregion
 
-    #region Update and Render
     /// <summary>
     /// Handle user input.
     /// </summary>
@@ -145,9 +133,7 @@ class GameplayScreen : GameScreen
         }
 
     }
-    #endregion
 
-    #region Private Methods
     /// <summary>
     /// Initializes the game component.
     /// </summary>
@@ -249,9 +235,7 @@ class GameplayScreen : GameScreen
             component.Visible = true;
         }
     }
-    #endregion
 
-    #region Event Handler
     /// <summary>
     /// Responds to the event sent when AI player's choose to "Stand".
     /// </summary>
@@ -293,5 +277,4 @@ class GameplayScreen : GameScreen
     {
         blackJackGame.Double();
     }
-    #endregion
 }

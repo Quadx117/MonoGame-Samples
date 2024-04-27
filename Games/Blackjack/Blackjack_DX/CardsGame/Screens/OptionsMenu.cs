@@ -1,22 +1,18 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // OptionsMenu.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace Blackjack_DX;
 
-#region Using Statements
 using System;
 using System.Collections.Generic;
 using CardsFramework;
 using GameStateManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
 
 class OptionsMenu : MenuScreen
 {
@@ -24,8 +20,6 @@ class OptionsMenu : MenuScreen
     AnimatedGameComponent card;
     Texture2D background;
     Rectangle safeArea;
-
-    #region Initializations
 
     /// <summary>
     /// Initializes a new instance of the screen.
@@ -35,7 +29,6 @@ class OptionsMenu : MenuScreen
     {
 
     }
-    #endregion
 
     /// <summary>
     /// Loads content required by the screen, and initializes the displayed menu.
@@ -73,7 +66,6 @@ class OptionsMenu : MenuScreen
         base.LoadContent();
     }
 
-    #region Update and Render
     /// <summary>
     /// Respond to "Theme" Item Selection
     /// </summary>
@@ -117,5 +109,4 @@ class OptionsMenu : MenuScreen
         ScreenManager.SpriteBatch.End();
         base.Draw(gameTime);
     }
-    #endregion
 }

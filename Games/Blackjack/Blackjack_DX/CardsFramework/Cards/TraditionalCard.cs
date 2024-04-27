@@ -1,17 +1,13 @@
-#region File Description
 //-----------------------------------------------------------------------------
 // TraditionalCard.cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
-#endregion
 
 namespace CardsFramework;
 
-#region Using Statements
 using System;
-#endregion
 
 /// <summary>
 /// Enum defining the various types of cards for a traditional-western card-set
@@ -68,13 +64,10 @@ public enum CardValue
 /// </remarks>
 public class TraditionalCard
 {
-    #region Properties
     public CardSuit Type { get; set; }
     public CardValue Value { get; set; }
     public CardPacket HoldingCardCollection;
-    #endregion
 
-    #region Initiaizations
     /// <summary>
     /// Initializes a new instance of the <see cref="TraditionalCard"/> class.
     /// </summary>
@@ -128,7 +121,6 @@ public class TraditionalCard
         Value = value;
         HoldingCardCollection = holdingCardCollection;
     }
-    #endregion
 
     /// <summary>
     /// Moves the card from its current <see cref="CardPacket"/> to the specified <paramref name="hand"/>. 
