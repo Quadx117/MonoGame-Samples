@@ -233,10 +233,7 @@ public class CardPacket
         {
             Cards.Remove(card);
 
-            if (LostCard != null)
-            {
-                LostCard(this, new CardEventArgs() { Card = card });
-            }
+            LostCard?.Invoke(this, new CardEventArgs() { Card = card });
 
             return card;
         }

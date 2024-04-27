@@ -34,10 +34,7 @@ public class Hand : CardPacket
     internal void Add(TraditionalCard card)
     {
         Cards.Add(card);
-        if (ReceivedCard != null)
-        {
-            ReceivedCard(this, new CardEventArgs() { Card = card });
-        }
+        ReceivedCard?.Invoke(this, new CardEventArgs() { Card = card });
     }
 
     /// <summary>

@@ -34,9 +34,6 @@ public abstract class GameRule
     /// <param name="e">Event arguments.</param>
     protected void FireRuleMatch(EventArgs e)
     {
-        if (RuleMatch != null)
-        {
-            RuleMatch(this, e);
-        }
+        RuleMatch?.Invoke(this, e);
     }
 }
