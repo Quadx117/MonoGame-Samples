@@ -99,8 +99,8 @@ abstract class MenuScreen : GameScreen
                 selectedEntry = 0;
             }
         }
-        else if (input.IsNewKeyPress(Keys.Enter, ControllingPlayer, out player) ||
-            input.IsNewKeyPress(Keys.Space, ControllingPlayer, out player))
+        else if (input.IsNewKeyPress(Keys.Enter, out player) ||
+                 input.IsNewKeyPress(Keys.Space, out player))
         {
             OnSelectEntry(selectedEntry, player);
         }

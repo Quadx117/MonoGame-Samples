@@ -20,10 +20,10 @@ public class InputState
 {
     public const int MaxInputs = 4;
 
-    public readonly KeyboardState[] CurrentKeyboardStates;
-    public readonly GamePadState[] CurrentGamePadStates;
+    public KeyboardState CurrentKeyboardStates;
+    public KeyboardState LastKeyboardStates;
 
-    public readonly KeyboardState[] LastKeyboardStates;
+    public readonly GamePadState[] CurrentGamePadStates;
     public readonly GamePadState[] LastGamePadStates;
 
     public readonly bool[] GamePadWasConnected;
@@ -39,10 +39,10 @@ public class InputState
     /// </summary>
     public InputState()
     {
-        CurrentKeyboardStates = new KeyboardState[MaxInputs];
-        CurrentGamePadStates = new GamePadState[MaxInputs];
+        CurrentKeyboardStates = new KeyboardState();
+        LastKeyboardStates = new KeyboardState();
 
-        LastKeyboardStates = new KeyboardState[MaxInputs];
+        CurrentGamePadStates = new GamePadState[MaxInputs];
         LastGamePadStates = new GamePadState[MaxInputs];
 
         GamePadWasConnected = new bool[MaxInputs];
@@ -53,12 +53,15 @@ public class InputState
     /// </summary>
     public void Update()
     {
+        LastKeyboardStates = CurrentKeyboardStates;
+
+        // NOTE(PERE): MonoGame doesn't support multiple keyboards plugged
+        // into the same PC anymore.
+        CurrentKeyboardStates = Keyboard.GetState();
+
         for (int i = 0; i < MaxInputs; i++)
         {
-            LastKeyboardStates[i] = CurrentKeyboardStates[i];
             LastGamePadStates[i] = CurrentGamePadStates[i];
-
-            CurrentKeyboardStates[i] = Keyboard.GetState((PlayerIndex)i);
             CurrentGamePadStates[i] = GamePad.GetState((PlayerIndex)i);
 
             // Keep track of whether a gamepad has ever been
@@ -80,32 +83,21 @@ public class InputState
     }
 
     /// <summary>
-    /// Helper for checking if a key was newly pressed during this update. The
-    /// controllingPlayer parameter specifies which player to read input for.
-    /// If this is null, it will accept input from any player. When a keypress
-    /// is detected, the output playerIndex reports which player pressed it.
+    /// Helper for checking if a key was newly pressed during this update. When a
+    /// keypress is detected, the output playerIndex reports which player pressed
+    /// it.
     /// </summary>
-    public bool IsNewKeyPress(Keys key, PlayerIndex? controllingPlayer,
-                                        out PlayerIndex playerIndex)
+    public bool IsNewKeyPress(Keys key,
+                              out PlayerIndex playerIndex)
     {
-        if (controllingPlayer.HasValue)
-        {
-            // Read input from the specified player.
-            playerIndex = controllingPlayer.Value;
+        // NOTE(PERE): We default to one in the case of keyboard input since
+        // the game is not really local multiplier enabled so we can minimize
+        // the changes to the code for now. A lot more thoughts would be needed
+        // if we ever want to mak local multiplayer work.
+        playerIndex = PlayerIndex.One;
 
-            int i = (int)playerIndex;
-
-            return CurrentKeyboardStates[i].IsKeyDown(key) &&
-                    LastKeyboardStates[i].IsKeyUp(key);
-        }
-        else
-        {
-            // Accept input from any player.
-            return IsNewKeyPress(key, PlayerIndex.One, out playerIndex) ||
-                    IsNewKeyPress(key, PlayerIndex.Two, out playerIndex) ||
-                    IsNewKeyPress(key, PlayerIndex.Three, out playerIndex) ||
-                    IsNewKeyPress(key, PlayerIndex.Four, out playerIndex);
-        }
+        return CurrentKeyboardStates.IsKeyDown(key) &&
+               LastKeyboardStates.IsKeyUp(key);
     }
 
     /// <summary>
@@ -115,7 +107,7 @@ public class InputState
     /// is detected, the output playerIndex reports which player pressed it.
     /// </summary>
     public bool IsNewButtonPress(Buttons button, PlayerIndex? controllingPlayer,
-                                                 out PlayerIndex playerIndex)
+                                 out PlayerIndex playerIndex)
     {
         if (controllingPlayer.HasValue)
         {
@@ -140,30 +132,26 @@ public class InputState
     /// <summary>
     /// Checks for a "menu select" input action.
     /// The controllingPlayer parameter specifies which player to read input for.
-    /// If this is null, it will accept input from any player. When the action
-    /// is detected, the output playerIndex reports which player pressed it.
+    /// If this is null, it will accept input from any player.
     /// </summary>
-    public bool IsMenuSelect(PlayerIndex? controllingPlayer,
-                             out PlayerIndex playerIndex)
+    public bool IsMenuSelect(PlayerIndex? controllingPlayer)
     {
-        return IsNewKeyPress(Keys.Space, controllingPlayer, out playerIndex) ||
-               IsNewKeyPress(Keys.Enter, controllingPlayer, out playerIndex) ||
-               IsNewButtonPress(Buttons.A, controllingPlayer, out playerIndex) ||
-               IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex);
+        return IsNewKeyPress(Keys.Space, out _) ||
+               IsNewKeyPress(Keys.Enter, out _) ||
+               IsNewButtonPress(Buttons.A, controllingPlayer, out _) ||
+               IsNewButtonPress(Buttons.Start, controllingPlayer, out _);
     }
 
     /// <summary>
     /// Checks for a "menu cancel" input action.
     /// The controllingPlayer parameter specifies which player to read input for.
-    /// If this is null, it will accept input from any player. When the action
-    /// is detected, the output playerIndex reports which player pressed it.
+    /// If this is null, it will accept input from any player.
     /// </summary>
-    public bool IsMenuCancel(PlayerIndex? controllingPlayer,
-                             out PlayerIndex playerIndex)
+    public bool IsMenuCancel(PlayerIndex? controllingPlayer)
     {
-        return IsNewKeyPress(Keys.Escape, controllingPlayer, out playerIndex) ||
-               IsNewButtonPress(Buttons.B, controllingPlayer, out playerIndex) ||
-               IsNewButtonPress(Buttons.Back, controllingPlayer, out playerIndex);
+        return IsNewKeyPress(Keys.Escape, out _) ||
+               IsNewButtonPress(Buttons.B, controllingPlayer, out _) ||
+               IsNewButtonPress(Buttons.Back, controllingPlayer, out _);
     }
 
     /// <summary>
@@ -173,8 +161,8 @@ public class InputState
     /// </summary>
     public bool IsMenuUp(PlayerIndex? controllingPlayer)
     {
-        return IsNewKeyPress(Keys.Up, controllingPlayer, out _) ||
-               IsNewKeyPress(Keys.Left, controllingPlayer, out _) ||
+        return IsNewKeyPress(Keys.Up, out _) ||
+               IsNewKeyPress(Keys.Left, out _) ||
                IsNewButtonPress(Buttons.DPadLeft, controllingPlayer, out _) ||
                IsNewButtonPress(Buttons.LeftThumbstickLeft, controllingPlayer, out _);
     }
@@ -186,8 +174,8 @@ public class InputState
     /// </summary>
     public bool IsMenuDown(PlayerIndex? controllingPlayer)
     {
-        return IsNewKeyPress(Keys.Down, controllingPlayer, out _) ||
-               IsNewKeyPress(Keys.Right, controllingPlayer, out _) ||
+        return IsNewKeyPress(Keys.Down, out _) ||
+               IsNewKeyPress(Keys.Right, out _) ||
                IsNewButtonPress(Buttons.DPadRight, controllingPlayer, out _) ||
                IsNewButtonPress(Buttons.LeftThumbstickRight, controllingPlayer, out _);
     }
@@ -199,7 +187,7 @@ public class InputState
     /// </summary>
     public bool IsPauseGame(PlayerIndex? controllingPlayer)
     {
-        return IsNewKeyPress(Keys.Escape, controllingPlayer, out _) ||
+        return IsNewKeyPress(Keys.Escape, out _) ||
                IsNewButtonPress(Buttons.Back, controllingPlayer, out _) ||
                IsNewButtonPress(Buttons.Start, controllingPlayer, out _);
     }
