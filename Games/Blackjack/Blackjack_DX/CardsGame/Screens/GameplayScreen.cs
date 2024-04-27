@@ -115,7 +115,7 @@ class GameplayScreen : GameScreen
 #endif
         if (blackJackGame != null && !coveredByOtherScreen)
         {
-            blackJackGame.Update(gameTime);
+            blackJackGame.Update();
         }
 
         base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
@@ -129,7 +129,7 @@ class GameplayScreen : GameScreen
     {
         base.Draw(gameTime);
 
-        blackJackGame?.Draw(gameTime);
+        blackJackGame?.Draw();
     }
 
     /// <summary>

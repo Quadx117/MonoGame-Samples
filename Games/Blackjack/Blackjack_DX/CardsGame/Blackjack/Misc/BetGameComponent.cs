@@ -46,10 +46,9 @@ public class BetGameComponent : DrawableGameComponent
     /// <param name="input">An instance of 
     /// <see cref="GameStateManagement.InputState"/> which can be used to 
     /// check user input.</param>
-    /// <param name="theme">The name of the selcted card theme.</param>
     /// <param name="cardGame">An instance of <see cref="CardsGame"/> which
     /// is the current game.</param>
-    public BetGameComponent(List<Player> players, InputState input, string theme, CardsGame cardGame)
+    public BetGameComponent(List<Player> players, InputState input, CardsGame cardGame)
         : base(cardGame.Game)
     {
         this.players = players;
@@ -355,7 +354,7 @@ public class BetGameComponent : DrawableGameComponent
             // Calculate the position for the new chip
             Vector2 position;
             // Get the proper offset according to the platform (pc, phone, xbox)
-            Vector2 offset = GetChipOffset(playerIndex, secondHand);
+            Vector2 offset = GetChipOffset(secondHand);
 
             position = cardGame.GameTable[playerIndex] + offset +
                 new Vector2(-currentChipComponent.Count * 2, currentChipComponent.Count * 1);
@@ -575,13 +574,11 @@ public class BetGameComponent : DrawableGameComponent
     /// <summary>
     /// Gets the offset at which newly added chips should be placed.
     /// </summary>
-    /// <param name="playerIndex">Index of the player to whom the chip 
-    /// is added.</param>
     /// <param name="secondHand">True if the chip is added to the player's second
     /// hand, false otherwise.</param>
     /// <returns>The offset from the player's position where chips should be
     /// placed.</returns>
-    private Vector2 GetChipOffset(int playerIndex, bool secondHand)
+    private Vector2 GetChipOffset(bool secondHand)
     {
         Vector2 offset = Vector2.Zero;
 

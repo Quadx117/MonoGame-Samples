@@ -97,7 +97,7 @@ class BlackjackCardGame : CardsGame
         base.LoadContent();
         // Initialize a new bet component
         betGameComponent =
-            new BetGameComponent(players, screenManager.input, Theme, this);
+            new BetGameComponent(players, screenManager.input, this);
         Game.Components.Add(betGameComponent);
 
         // Initialize the game buttons
@@ -153,7 +153,7 @@ class BlackjackCardGame : CardsGame
     /// </summary>
     /// <param name="gameTime">Time elapsed since the last call to 
     /// this method.</param>
-    public void Update(GameTime gameTime)
+    public void Update()
     {
         switch (State)
         {
@@ -298,7 +298,7 @@ class BlackjackCardGame : CardsGame
     /// </summary>
     /// <param name="gameTime">Time passed since the last call to 
     /// this method.</param>
-    public void Draw(GameTime gameTime)
+    public void Draw()
     {
         SpriteBatch.Begin();
 
