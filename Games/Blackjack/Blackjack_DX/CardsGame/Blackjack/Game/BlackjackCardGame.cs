@@ -860,9 +860,11 @@ class BlackjackCardGame : CardsGame
     /// <returns>The asset name</returns>
     private string GetResultAsset(BlackjackPlayer player, int dealerValue, int playerValue)
     {
-        // TODO(PERE): See if we can make this more understandable by mabe using
-        // a switch statement or separating the different "main" conditions better.
+        // TODO(PERE): This method would benefit from unit testing to make sure
+        // all the cases return the correct values based on the rules.
+
         string assetName;
+
         if (dealerPlayer.Bust)
         {
             assetName = "win";
@@ -873,13 +875,19 @@ class BlackjackCardGame : CardsGame
                             ? "push"
                             : "lose";
         }
+        else if (playerValue > dealerValue)
+        {
+            assetName = "win";
+        }
         else
         {
-            assetName = playerValue < dealerValue
-                            ? "lose"
-                            : playerValue > dealerValue
-                                ? "win"
-                                : "push";
+            // NOTE(PERE): We know playerValue will be less than dealerValue if
+            // playerValue is not equal to dealerValue, since we already know
+            // that playerValue is not greater than dealerValue from the condition
+            // above.
+            assetName = playerValue == dealerValue
+                            ? "push"
+                            : "lose";
         }
 
         return assetName;
