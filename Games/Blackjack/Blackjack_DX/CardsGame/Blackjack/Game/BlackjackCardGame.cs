@@ -87,14 +87,8 @@ class BlackjackCardGame : CardsGame
         turnFinishedByPlayer = new bool[MaximumPlayers];
         this.screenManager = screenManager;
 
-        if (animatedHands == null)
-        {
-            animatedHands = new AnimatedHandGameComponent[maxPlayers];
-        }
-        if (animatedSecondHands == null)
-        {
-            animatedSecondHands = new AnimatedHandGameComponent[maxPlayers];
-        }
+        animatedHands ??= new AnimatedHandGameComponent[maxPlayers];
+        animatedSecondHands ??= new AnimatedHandGameComponent[maxPlayers];
     }
 
     /// <summary>
