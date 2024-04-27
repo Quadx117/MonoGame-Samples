@@ -56,14 +56,9 @@ public class AnimatedGameComponentAnimation
     {
         get
         {
-            if (isStarted)
-            {
-                return (Duration - Elapsed);
-            }
-            else
-            {
-                return StartTime - DateTime.Now + Duration;
-            }
+            return isStarted
+                       ? Duration - Elapsed
+                       : StartTime - DateTime.Now + Duration;
         }
     }
 

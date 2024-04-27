@@ -217,13 +217,9 @@ public abstract class GameScreen
     bool UpdateTransition(GameTime gameTime, TimeSpan time, int direction)
     {
         // How much should we move by?
-        float transitionDelta;
-
-        if (time == TimeSpan.Zero)
-            transitionDelta = 1;
-        else
-            transitionDelta = (float)(gameTime.ElapsedGameTime.TotalMilliseconds /
-                                      time.TotalMilliseconds);
+        float transitionDelta = time == TimeSpan.Zero
+                                    ? 1
+                                    : (float)(gameTime.ElapsedGameTime.TotalMilliseconds / time.TotalMilliseconds);
 
         // Update the transition position.
         TransitionPosition += transitionDelta * direction;

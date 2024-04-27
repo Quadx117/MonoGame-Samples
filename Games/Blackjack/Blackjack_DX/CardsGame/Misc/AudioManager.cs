@@ -106,14 +106,9 @@ public class AudioManager : GameComponent
     {
         get
         {
-            if (Instance.soundBank.ContainsKey(soundName))
-            {
-                return Instance.soundBank[soundName];
-            }
-            else
-            {
-                return null;
-            }
+            return Instance.soundBank.ContainsKey(soundName)
+                       ? Instance.soundBank[soundName]
+                       : null;
         }
     }
 

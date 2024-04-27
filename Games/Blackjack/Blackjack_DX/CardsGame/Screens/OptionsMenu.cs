@@ -73,14 +73,9 @@ class OptionsMenu : MenuScreen
     /// <param name="e"></param>
     void ThemeGameMenuEntrySelected(object sender, EventArgs e)
     {
-        if (MainMenuScreen.Theme == "Red")
-        {
-            MainMenuScreen.Theme = "Blue";
-        }
-        else
-        {
-            MainMenuScreen.Theme = "Red";
-        }
+        MainMenuScreen.Theme = MainMenuScreen.Theme == "Red"
+                                   ? "Blue"
+                                   : "Red";
         card.CurrentFrame = themes[MainMenuScreen.Theme];
     }
 

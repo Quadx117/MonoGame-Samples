@@ -57,14 +57,9 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
         hand.LostCard += Hand_LostCard;
 
         // Set the component's position
-        if (place == -1)
-        {
-            CurrentPosition = CardGame.GameTable.DealerPosition;
-        }
-        else
-        {
-            CurrentPosition = CardGame.GameTable[place];
-        }
+        CurrentPosition = place == -1
+                            ? CardGame.GameTable.DealerPosition
+                            : CardGame.GameTable[place];
 
         // Create and initialize animated cards according to the cards in the 
         // associated hand
@@ -141,12 +136,10 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
     public AnimatedCardsGameComponent GetCardGameComponent(TraditionalCard card)
     {
         int location = GetCardLocationInHand(card);
-        if (location == -1)
-        {
-            return null;
-        }
 
-        return heldAnimatedCards[location];
+        return location == -1
+                   ? null
+                   : heldAnimatedCards[location];
     }
 
     /// <summary>

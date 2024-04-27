@@ -367,14 +367,9 @@ class BlackjackCardGame : CardsGame
             BlackjackPlayer player = (BlackjackPlayer)players[playerIndex];
             // The current player's hand value will be red to serve as a visual
             // prompt for who the active player is
-            if (player == currentPlayer)
-            {
-                color = Color.Red;
-            }
-            else
-            {
-                color = Color.White;
-            }
+            color = player == currentPlayer
+                        ? Color.Red
+                        : Color.White;
 
             // Calculate the values to draw
             string playerHandValueText;
@@ -599,14 +594,7 @@ class BlackjackCardGame : CardsGame
             // Display the hands participating in the game
             for (int playerIndex = 0; playerIndex < players.Count; playerIndex++)
             {
-                if (((BlackjackPlayer)players[playerIndex]).MadeBet)
-                {
-                    animatedHands[playerIndex].Visible = false;
-                }
-                else
-                {
-                    animatedHands[playerIndex].Visible = true;
-                }
+                animatedHands[playerIndex].Visible = !((BlackjackPlayer)players[playerIndex]).MadeBet;
             }
         }
     }
@@ -723,15 +711,9 @@ class BlackjackCardGame : CardsGame
 
         // Calculate when to start the animation. The animation will only begin
         // after all hand cards finish animating
-        TimeSpan estimatedTimeToCompleteAnimations;
-        if (waitForHand != null)
-        {
-            estimatedTimeToCompleteAnimations = waitForHand.EstimatedTimeForAnimationsCompletion();
-        }
-        else
-        {
-            estimatedTimeToCompleteAnimations = currentAnimatedHand.EstimatedTimeForAnimationsCompletion();
-        }
+        TimeSpan estimatedTimeToCompleteAnimations = waitForHand != null
+                                                         ? waitForHand.EstimatedTimeForAnimationsCompletion()
+                                                         : currentAnimatedHand.EstimatedTimeForAnimationsCompletion();
 
         // Add a scale effect animation
         animationComponent.AddAnimation(new ScaleGameComponentAnimation(2.0f, 1.0f)
@@ -864,6 +846,8 @@ class BlackjackCardGame : CardsGame
     /// <returns>The asset name</returns>
     private string GetResultAsset(BlackjackPlayer player, int dealerValue, int playerValue)
     {
+        // TODO(PERE): See if we can make this more understandable by mabe using
+        // a switch statement or separating the different "main" conditions better.
         string assetName;
         if (dealerPlayer.Bust)
         {
@@ -871,19 +855,17 @@ class BlackjackCardGame : CardsGame
         }
         else if (dealerPlayer.BlackJack)
         {
-            assetName = player.BlackJack ? "push" : "lose";
-        }
-        else if (playerValue < dealerValue)
-        {
-            assetName = "lose";
-        }
-        else if (playerValue > dealerValue)
-        {
-            assetName = "win";
+            assetName = player.BlackJack
+                            ? "push"
+                            : "lose";
         }
         else
         {
-            assetName = "push";
+            assetName = playerValue < dealerValue
+                            ? "lose"
+                            : playerValue > dealerValue
+                                ? "win"
+                                : "push";
         }
         return assetName;
     }

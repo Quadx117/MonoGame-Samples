@@ -105,17 +105,9 @@ public class AnimatedGameComponent : DrawableGameComponent
     {
         base.Draw(gameTime);
 
-        SpriteBatch spriteBatch;
-
-        if (CardGame != null)
-        {
-            spriteBatch = CardGame.SpriteBatch;
-        }
-        else
-        {
-            spriteBatch = new SpriteBatch(Game.GraphicsDevice);
-        }
-
+        SpriteBatch spriteBatch = CardGame != null
+                                    ? CardGame.SpriteBatch
+                                    : new SpriteBatch(Game.GraphicsDevice);
         spriteBatch.Begin();
 
         // Draw at the destination if one is set

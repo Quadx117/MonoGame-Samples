@@ -57,11 +57,8 @@ class BlackjackAIPlayer : BlackjackPlayer
         int[] chips = { 0, 5, 25, 100, 500 };
         int bet = chips[random.Next(0, chips.Length)];
 
-        if (bet < Balance)
-        {
-            return bet;
-        }
-
-        return 0;
+        return bet < Balance
+                   ? bet
+                   : 0;
     }
 }

@@ -88,10 +88,9 @@ class MenuEntry
         // popping to the new state.
         float fadeSpeed = (float)gameTime.ElapsedGameTime.TotalSeconds * 4;
 
-        if (isSelected)
-            selectionFade = Math.Min(selectionFade + fadeSpeed, 1);
-        else
-            selectionFade = Math.Max(selectionFade - fadeSpeed, 0);
+        selectionFade = isSelected
+                            ? Math.Min(selectionFade + fadeSpeed, 1)
+                            : Math.Max(selectionFade - fadeSpeed, 0);
     }
 
     /// <summary>
@@ -141,16 +140,11 @@ class MenuEntry
     private Vector2 GetTextPosition(MenuScreen screen)
     {
         Vector2 textPosition = Vector2.Zero;
-        if (Scale == 1f)
-        {
-            textPosition = new Vector2(destination.X + (destination.Width / 2) - (GetWidth(screen) / 2),
-                                       destination.Y);
-        }
-        else
-        {
-            textPosition = new Vector2(destination.X + (destination.Width / 2 - ((GetWidth(screen) / 2) * Scale)),
-                                       destination.Y + (GetHeight(screen) - GetHeight(screen) * Scale) / 2);
-        }
+        textPosition = Scale == 1f
+                           ? new Vector2(destination.X + (destination.Width / 2) - (GetWidth(screen) / 2),
+                                         destination.Y)
+                           : new Vector2(destination.X + (destination.Width / 2 - ((GetWidth(screen) / 2) * Scale)),
+                                         destination.Y + (GetHeight(screen) - GetHeight(screen) * Scale) / 2);
 
         return textPosition;
     }
