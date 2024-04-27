@@ -19,12 +19,12 @@ class GameplayScreen : GameScreen
 
     InputHelper inputHelper;
 
-    string theme;
-    List<DrawableGameComponent> pauseEnabledComponents = new();
-    List<DrawableGameComponent> pauseVisibleComponents = new();
+    readonly string theme;
+    readonly List<DrawableGameComponent> pauseEnabledComponents = new();
+    readonly List<DrawableGameComponent> pauseVisibleComponents = new();
     Rectangle safeArea;
 
-    static Vector2[] playerCardOffset = new Vector2[]
+    static readonly Vector2[] playerCardOffset = new Vector2[]
     {
         new(100f * BlackjackGame.WidthScale, 190f * BlackjackGame.HeightScale),
         new(336f * BlackjackGame.WidthScale, 210f * BlackjackGame.HeightScale),

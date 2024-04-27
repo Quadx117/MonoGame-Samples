@@ -22,9 +22,9 @@ abstract class MenuScreen : GameScreen
     // the number of pixels to pad above and below menu entries for touch input
     const int menuEntryPadding = 35;
 
-    List<MenuEntry> menuEntries = new();
+    readonly List<MenuEntry> menuEntries = new();
     int selectedEntry = 0;
-    string menuTitle;
+    readonly string menuTitle;
 #if WINDOWS
     bool isMouseDown = false;
 #endif

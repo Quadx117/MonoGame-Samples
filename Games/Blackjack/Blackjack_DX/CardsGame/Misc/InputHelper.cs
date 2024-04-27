@@ -23,9 +23,9 @@ public class InputHelper : DrawableGameComponent
     public bool IsPressed;
 
     Vector2 drawPosition;
-    Texture2D texture;
-    SpriteBatch spriteBatch;
-    float maxVelocity;
+    readonly Texture2D texture;
+    readonly SpriteBatch spriteBatch;
+    readonly float maxVelocity;
 
     public InputHelper(Game game)
         : base(game)

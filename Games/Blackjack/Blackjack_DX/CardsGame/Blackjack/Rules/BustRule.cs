@@ -15,7 +15,7 @@ using CardsFramework;
 /// </summary>
 public class BustRule : GameRule
 {
-    List<BlackjackPlayer> players;
+    readonly List<BlackjackPlayer> players;
 
     /// <summary>
     /// Creates a new instance of the <see cref="BustRule"/> class.

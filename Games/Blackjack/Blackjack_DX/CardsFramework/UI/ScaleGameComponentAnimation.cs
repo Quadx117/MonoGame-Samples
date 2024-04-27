@@ -16,8 +16,8 @@ using Microsoft.Xna.Framework.Graphics;
 public class ScaleGameComponentAnimation : AnimatedGameComponentAnimation
 {
     float percent = 0;
-    float beginFactor;
-    float factorDelta;
+    readonly float beginFactor;
+    readonly float factorDelta;
 
     /// <summary>
     /// Initializes a new instance of the class.

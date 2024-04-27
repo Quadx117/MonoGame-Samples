@@ -15,9 +15,9 @@ using Microsoft.Xna.Framework.Graphics;
 /// </summary>
 public class FramesetGameComponentAnimation : AnimatedGameComponentAnimation
 {
-    Texture2D framesTexture;
-    int numberOfFrames;
-    int numberOfFramePerRow;
+    readonly Texture2D framesTexture;
+    readonly int numberOfFrames;
+    readonly int numberOfFramePerRow;
     Vector2 frameSize;
 
     private double percent = 0;

@@ -29,16 +29,16 @@ public enum BlackjackGameState
 
 class BlackjackCardGame : CardsGame
 {
-    Dictionary<Player, string> playerHandValueTexts = new();
-    Dictionary<Player, string> playerSecondHandValueTexts = new();
-    private Hand deadCards = new(); // stores used cards
-    private BlackjackPlayer dealerPlayer;
-    bool[] turnFinishedByPlayer;
-    TimeSpan dealDuration = TimeSpan.FromMilliseconds(500);
+    readonly Dictionary<Player, string> playerHandValueTexts = new();
+    readonly Dictionary<Player, string> playerSecondHandValueTexts = new();
+    private readonly Hand deadCards = new(); // stores used cards
+    private readonly BlackjackPlayer dealerPlayer;
+    readonly bool[] turnFinishedByPlayer;
+    readonly TimeSpan dealDuration = TimeSpan.FromMilliseconds(500);
 
-    AnimatedHandGameComponent[] animatedHands;
+    readonly AnimatedHandGameComponent[] animatedHands;
     // An additional list for managing hands created when performing a split.
-    AnimatedHandGameComponent[] animatedSecondHands;
+    readonly AnimatedHandGameComponent[] animatedSecondHands;
 
     BetGameComponent betGameComponent;
     AnimatedHandGameComponent dealerHandComponent;
@@ -59,7 +59,7 @@ class BlackjackCardGame : CardsGame
 #endif
 
     public BlackjackGameState State { get; set; }
-    ScreenManager screenManager;
+    readonly ScreenManager screenManager;
 
     const int maxPlayers = 3;
     const int minPlayers = 1;

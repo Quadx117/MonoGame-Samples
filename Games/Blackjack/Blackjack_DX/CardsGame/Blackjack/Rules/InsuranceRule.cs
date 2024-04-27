@@ -15,7 +15,7 @@ using CardsFramework;
 /// </summary>
 class InsuranceRule : GameRule
 {
-    Hand dealerHand;
+    readonly Hand dealerHand;
     bool done = false;
 
     /// <summary>

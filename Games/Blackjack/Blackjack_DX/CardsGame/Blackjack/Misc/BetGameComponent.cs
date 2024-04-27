@@ -18,9 +18,9 @@ using Microsoft.Xna.Framework.Input;
 public class BetGameComponent : DrawableGameComponent
 {
     readonly List<Player> players;
-    string theme;
-    int[] assetNames = { 5, 25, 100, 500 };
-    Dictionary<int, Texture2D> chipsAssets;
+    readonly string theme;
+    readonly int[] assetNames = { 5, 25, 100, 500 };
+    readonly Dictionary<int, Texture2D> chipsAssets;
     Texture2D blankChip;
     Vector2[] positions;
     readonly CardsFramework.CardsGame cardGame;
@@ -32,13 +32,13 @@ public class BetGameComponent : DrawableGameComponent
     Button clear;
 
     Vector2 ChipOffset { get; set; }
-    static float insuranceYPosition = 120 * BlackjackGame.HeightScale;
+    static readonly float insuranceYPosition = 120 * BlackjackGame.HeightScale;
     static Vector2 secondHandOffset = new(25 * BlackjackGame.WidthScale,
                                           30 * BlackjackGame.HeightScale);
 
-    List<AnimatedGameComponent> currentChipComponent = new();
+    readonly List<AnimatedGameComponent> currentChipComponent = new();
     int currentBet = 0;
-    InputState input;
+    readonly InputState input;
     InputHelper inputHelper;
 
     /// <summary>

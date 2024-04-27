@@ -18,7 +18,7 @@ class InstructionScreen : GameplayScreen
     Texture2D background;
     SpriteFont font;
     GameplayScreen gameplayScreen;
-    string theme;
+    readonly string theme;
     bool isExit = false;
     bool isExited = false;
 

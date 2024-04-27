@@ -24,8 +24,8 @@ using Microsoft.Xna.Framework.Graphics;
 /// </summary>
 public class ScreenManager : DrawableGameComponent
 {
-    List<GameScreen> screens = new();
-    List<GameScreen> screensToUpdate = new();
+    readonly List<GameScreen> screens = new();
+    readonly List<GameScreen> screensToUpdate = new();
 
     public InputState input = new();
     bool isInitialized;

@@ -27,7 +27,7 @@ public class AnimatedGameComponent : DrawableGameComponent
     public Vector2 CurrentPosition { get; set; }
     public Rectangle? CurrentDestination { get; set; }
 
-    List<AnimatedGameComponentAnimation> runningAnimations = new();
+    readonly List<AnimatedGameComponentAnimation> runningAnimations = new();
 
     /// <summary>
     /// Whether or not an animation belonging to the component is running.

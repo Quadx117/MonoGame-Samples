@@ -16,7 +16,7 @@ public class AnimatedHandGameComponent : AnimatedGameComponent
     public int Place { get; private set; }
     public readonly Hand Hand;
 
-    List<AnimatedCardsGameComponent> heldAnimatedCards = new();
+    readonly List<AnimatedCardsGameComponent> heldAnimatedCards = new();
 
     public override bool IsAnimating
     {

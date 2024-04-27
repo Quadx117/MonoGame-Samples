@@ -16,7 +16,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 class OptionsMenu : MenuScreen
 {
-    Dictionary<string, Texture2D> themes = new();
+    readonly Dictionary<string, Texture2D> themes = new();
     AnimatedGameComponent card;
     Texture2D background;
     Rectangle safeArea;
