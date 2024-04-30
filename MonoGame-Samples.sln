@@ -41,7 +41,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blackjack_DX", "Games\Black
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{CFE9E66C-AE96-4DAA-8475-93CC7A01068C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceCounter", "Miscellaneous\Utils\PerformanceCounter\PerformanceCounter.csproj", "{2DC3E3EC-1B70-4EA3-8E0E-C6D11FAE63ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerformanceCounter", "Miscellaneous\Utils\PerformanceCounter\PerformanceCounter.csproj", "{2DC3E3EC-1B70-4EA3-8E0E-C6D11FAE63ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStateManagement", "Miscellaneous\GameStateManagement\GameStateManagement.csproj", "{555C7E1F-8008-418C-98DB-AAF69AF41E98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +91,10 @@ Global
 		{2DC3E3EC-1B70-4EA3-8E0E-C6D11FAE63ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DC3E3EC-1B70-4EA3-8E0E-C6D11FAE63ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DC3E3EC-1B70-4EA3-8E0E-C6D11FAE63ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{555C7E1F-8008-418C-98DB-AAF69AF41E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{555C7E1F-8008-418C-98DB-AAF69AF41E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{555C7E1F-8008-418C-98DB-AAF69AF41E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{555C7E1F-8008-418C-98DB-AAF69AF41E98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,6 +118,7 @@ Global
 		{AD7696A8-A88E-42B9-B328-FEA116DB802F} = {D45E15DA-4204-46E9-BD9F-149FBDF759FB}
 		{CFE9E66C-AE96-4DAA-8475-93CC7A01068C} = {EA4740A7-0E33-4F47-B7FE-3E2328B84A8B}
 		{2DC3E3EC-1B70-4EA3-8E0E-C6D11FAE63ED} = {CFE9E66C-AE96-4DAA-8475-93CC7A01068C}
+		{555C7E1F-8008-418C-98DB-AAF69AF41E98} = {EA4740A7-0E33-4F47-B7FE-3E2328B84A8B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {685D785D-82C1-46A0-811F-515BC5A505B9}
