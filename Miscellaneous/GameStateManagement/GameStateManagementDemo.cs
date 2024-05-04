@@ -11,7 +11,6 @@ using Microsoft.Xna.Framework.Graphics;
 /// </summary>
 public class GameStateManagementDemo : Game
 {
-    private readonly GraphicsDeviceManager _graphics;
     private readonly ScreenManager _screenManager;
 
     // By preloading any assets used by UI rendering, we avoid framerate glitches
@@ -23,7 +22,7 @@ public class GameStateManagementDemo : Game
 
     public GameStateManagementDemo()
     {
-        _graphics = new GraphicsDeviceManager(this)
+        _ = new GraphicsDeviceManager(this)
         {
             PreferredBackBufferWidth = 853,
             PreferredBackBufferHeight = 480
