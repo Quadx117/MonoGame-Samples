@@ -230,12 +230,12 @@ public abstract class GameScreen
     /// <param name="transitionDuration">How long the transition should take.</param>
     /// <param name="direction">Positive 1 if we are transitioning in, negative 1 if we are transitioning out.</param>
     /// <returns><c>false</c> if the screen has reached the end of its transition, <c>true</c> otherwise.</returns>
-    private bool UpdateTransition(GameTime gameTime, TimeSpan time, int direction)
+    private bool UpdateTransition(GameTime gameTime, TimeSpan transitionDuration, int direction)
     {
         // How much should we move by?
-        float transitionDelta = time == TimeSpan.Zero
+        float transitionDelta = transitionDuration == TimeSpan.Zero
                                     ? 1
-                                    : (float)(gameTime.ElapsedGameTime.TotalMilliseconds / time.TotalMilliseconds);
+                                    : (float)(gameTime.ElapsedGameTime.TotalMilliseconds / transitionDuration.TotalMilliseconds);
 
         // Update the transition position.
         TransitionPosition += transitionDelta * direction;
